@@ -128,7 +128,8 @@ public class Main {
 //        System.out.println(" Result of frequency count: " + Main.findElement(arrrr));
 //        System.out.println(" Result of frequency count: " + Main.encode("ttlllsslhh"));
 //        System.out.println(" Result of frequency count: " + Main.printString("Thisisdemostring", 'i',3 ));
-        System.out.println(" Result of frequency count: " + Main.kPangram("zuobxee atwqtkq nflgomyhu w woqrb pfqschzobqcf lupvimxuqe reeabtpsox sxep a f ceero db",6));
+//        System.out.println(" Result of frequency count: " + Main.kPangram("zuobxee atwqtkq nflgomyhu w woqrb pfqschzobqcf lupvimxuqe reeabtpsox sxep a f ceero db",6));
+        System.out.println(" Result: " + Main.ExtractNumber("zg 9 e 12 b 16 10 8 10 l 7"));
         int a[] ={-1, -2, 4, -6, 5, 7};
         int b[] = {6, 3, 4, 0};
 //        Main.allPairs(8,a,b);
@@ -209,44 +210,61 @@ public class Main {
 //Given a string str and an integer k, return true if the string can be changed into a pangram after at most k operations, else return false.
 //A single operation consists of swapping an existing alphabetic character with any other lowercase alphabetic character.
 //Note - A pangram is a sentence containing every letter in the english alphabet.
-    public static boolean kPangram(String str, int k) {
+//    public static boolean kPangram(String str, int k) {
         // code here
-//        HashSet<Character> set = new HashSet<>();
-//        ArrayList<Character> list = new ArrayList<>();
-//        for(char c:str.toCharArray()){
-//            if(c!=' '){
-//                set.add(c);
-//                list.add(c);
+//        boolean[] seen = new boolean[26];
+//        int uniqueCount = 0;
+//        int totalChars = 0;
+//
+//        for (int i = 0; i < str.length(); i++) {
+//            char c = str.charAt(i);
+//
+//            if (c >= 'a' && c <= 'z') {
+//                totalChars++;
+//
+//                if (!seen[c - 'a']) {
+//                    seen[c - 'a'] = true;
+//                    uniqueCount++;
+//                }
 //            }
 //        }
-//        int missing = 26- set.size();
-//        if(set.size()>=26 || (missing==k && list.size()>=26)){
-//            return true;
-//        }else{
+//        if (totalChars < 26) {
 //            return false;
 //        }
-        boolean[] seen = new boolean[26];
-        int uniqueCount = 0;
-        int totalChars = 0;
+//        int missing = 26 - uniqueCount;
+//
+//        return k >= missing;
+//
+//    }
 
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
-            if (c >= 'a' && c <= 'z') {
-                totalChars++;
-
-                if (!seen[c - 'a']) {
-                    seen[c - 'a'] = true;
-                    uniqueCount++;
+//Given a sentence containing several words and numbers. Find the largest number among them which does not contain 9. If no such number exists, return -1.
+//Note: Numbers and words are separated by spaces only. It is guaranteed that there are no leading zeroes in the answer.
+    public static long ExtractNumber(String sentence) {
+        // code here
+        long max = -1;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < sentence.length(); i++) {
+            char c = sentence.charAt(i);
+            if (Character.isDigit(c)) {
+                sb.append(c);
+            } else {
+                if (sb.length() > 0) {
+                    String numStr = sb.toString();
+                    if (!numStr.contains("9")) {
+                        long num = Long.parseLong(numStr);
+                        max = Math.max(max, num);
+                    }
+                    sb.setLength(0);
                 }
             }
         }
-        if (totalChars < 26) {
-            return false;
+        if (sb.length() > 0) {
+            String numStr = sb.toString();
+            if (!numStr.contains("9")) {
+                long num = Long.parseLong(numStr);
+                max = Math.max(max, num);
+            }
         }
-        int missing = 26 - uniqueCount;
-
-        return k >= missing;
-
+        return max;
     }
 }
