@@ -127,7 +127,8 @@ public class Main {
         ArrayList<Integer> newList = new ArrayList<>(listArr);
 //        System.out.println(" Result of frequency count: " + Main.findElement(arrrr));
 //        System.out.println(" Result of frequency count: " + Main.encode("ttlllsslhh"));
-        System.out.println(" Result of frequency count: " + Main.printString("Thisisdemostring", 'i',3 ));
+//        System.out.println(" Result of frequency count: " + Main.printString("Thisisdemostring", 'i',3 ));
+        System.out.println(" Result of frequency count: " + Main.kPangram("zuobxee atwqtkq nflgomyhu w woqrb pfqschzobqcf lupvimxuqe reeabtpsox sxep a f ceero db",6));
         int a[] ={-1, -2, 4, -6, 5, 7};
         int b[] = {6, 3, 4, 0};
 //        Main.allPairs(8,a,b);
@@ -189,20 +190,63 @@ public class Main {
 //        return sb.toString();
 //    }
 
-//    Thisisdemostring
-    public static String printString(String s, char ch, int count) {
+//    public static String printString(String s, char ch, int count) {
+//        // code here
+//        String result = "";
+//        int charCount = 0;
+//        for(int i=0; i<s.length(); i++){
+//            if(s.charAt(i)==ch){
+//                charCount++;
+//            }
+//            if(charCount==count){
+//                result = s.substring(i+1);
+//                return result;
+//            }
+//        }
+//        return result;
+//    }
+
+//Given a string str and an integer k, return true if the string can be changed into a pangram after at most k operations, else return false.
+//A single operation consists of swapping an existing alphabetic character with any other lowercase alphabetic character.
+//Note - A pangram is a sentence containing every letter in the english alphabet.
+    public static boolean kPangram(String str, int k) {
         // code here
-        String result = "";
-        int charCount = 0;
-        for(int i=0; i<s.length(); i++){
-            if(s.charAt(i)==ch){
-                charCount++;
-            }
-            if(charCount==count){
-                result = s.substring(i+1);
-                return result;
+//        HashSet<Character> set = new HashSet<>();
+//        ArrayList<Character> list = new ArrayList<>();
+//        for(char c:str.toCharArray()){
+//            if(c!=' '){
+//                set.add(c);
+//                list.add(c);
+//            }
+//        }
+//        int missing = 26- set.size();
+//        if(set.size()>=26 || (missing==k && list.size()>=26)){
+//            return true;
+//        }else{
+//            return false;
+//        }
+        boolean[] seen = new boolean[26];
+        int uniqueCount = 0;
+        int totalChars = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+
+            if (c >= 'a' && c <= 'z') {
+                totalChars++;
+
+                if (!seen[c - 'a']) {
+                    seen[c - 'a'] = true;
+                    uniqueCount++;
+                }
             }
         }
-        return result;
+        if (totalChars < 26) {
+            return false;
+        }
+        int missing = 26 - uniqueCount;
+
+        return k >= missing;
+
     }
 }
