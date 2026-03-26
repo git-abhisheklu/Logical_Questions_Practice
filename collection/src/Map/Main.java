@@ -125,7 +125,9 @@ public class Main {
         String s1="IX"; String s2 = "MCMIV";
         List<Integer> listArr = Arrays.asList(-5, -2, 5, 2, 4, 7, 1, 8, 0, -8);
         ArrayList<Integer> newList = new ArrayList<>(listArr);
-        System.out.println(" Result of frequency count: " + Main.findElement(arrrr));
+//        System.out.println(" Result of frequency count: " + Main.findElement(arrrr));
+//        System.out.println(" Result of frequency count: " + Main.encode("ttlllsslhh"));
+        System.out.println(" Result of frequency count: " + Main.printString("Thisisdemostring", 'i',3 ));
         int a[] ={-1, -2, 4, -6, 5, 7};
         int b[] = {6, 3, 4, 0};
 //        Main.allPairs(8,a,b);
@@ -146,23 +148,61 @@ public class Main {
 //
 //    }
 
-    public static int findElement(int[] arr) {
+//    public static int findElement(int[] arr) {
+//        // code here
+//        int maxLeft = Integer.MIN_VALUE;
+//        int minRight = Integer.MAX_VALUE;
+//        int[] prefixArr = new int[arr.length];
+//        int[] suffixArr = new int[arr.length];
+//        for(int i=0; i< arr.length; i++){
+//            maxLeft = Math.max(maxLeft,arr[i]);
+//            prefixArr[i]=maxLeft;
+//            minRight = Math.min(minRight, arr[arr.length-1-i]);
+//            suffixArr[i] = minRight;
+//        }
+//        for(int i=0; i<arr.length; i++){
+//            if(arr[i]>=prefixArr[i] && arr[i]<=suffixArr[i]){
+//                return arr[i];
+//            }
+//        }
+//        return -1;
+//    }
+//    public static String encode(String s) {
+//        // code here
+//        StringBuilder sb = new StringBuilder();
+//        int count =1;
+//        char prev = s.charAt(0);
+//        for(int i=1; i<s.length(); i++){
+//            char next = s.charAt(i);
+//            if(prev!=next){
+//                sb.append(prev);
+//                sb.append(count);
+//                prev=next;
+//                count=1;
+//            }else{
+//                count++;
+//                prev = next;
+//            }
+//        }
+//        sb.append(s.charAt(s.length() - 1));
+//        sb.append(count);
+//        return sb.toString();
+//    }
+
+//    Thisisdemostring
+    public static String printString(String s, char ch, int count) {
         // code here
-        int maxLeft = Integer.MIN_VALUE;
-        int minRight = Integer.MAX_VALUE;
-        int[] prefixArr = new int[arr.length];
-        int[] suffixArr = new int[arr.length];
-        for(int i=0; i< arr.length; i++){
-            maxLeft = Math.max(maxLeft,arr[i]);
-            prefixArr[i]=maxLeft;
-            minRight = Math.min(minRight, arr[arr.length-1-i]);
-            suffixArr[i] = minRight;
-        }
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]>=prefixArr[i] && arr[i]<=suffixArr[i]){
-                return arr[i];
+        String result = "";
+        int charCount = 0;
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i)==ch){
+                charCount++;
+            }
+            if(charCount==count){
+                result = s.substring(i+1);
+                return result;
             }
         }
-        return -1;
+        return result;
     }
 }
