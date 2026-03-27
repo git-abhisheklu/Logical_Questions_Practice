@@ -120,7 +120,7 @@ public class Main {
 //        Main.returnUniqueElements(newArr);
 //        int n=5, arr[ ] = {10, 11, 1, 2, 3};
 //        System.out.println("First letter concat: " +Main.game_with_number(arr,n));
-        int[] arrrr = {5,9,20,2,22,29,40};
+        int[] input = {2,2,0,4,0,8};
         String[] stringArr = {"geeksforgeeks", "geeks", "geek", "geezer"};
         String s1="IX"; String s2 = "MCMIV";
         List<Integer> listArr = Arrays.asList(-5, -2, 5, 2, 4, 7, 1, 8, 0, -8);
@@ -129,7 +129,8 @@ public class Main {
 //        System.out.println(" Result of frequency count: " + Main.encode("ttlllsslhh"));
 //        System.out.println(" Result of frequency count: " + Main.printString("Thisisdemostring", 'i',3 ));
 //        System.out.println(" Result of frequency count: " + Main.kPangram("zuobxee atwqtkq nflgomyhu w woqrb pfqschzobqcf lupvimxuqe reeabtpsox sxep a f ceero db",6));
-        System.out.println(" Result: " + Main.ExtractNumber("zg 9 e 12 b 16 10 8 10 l 7"));
+//        System.out.println(" Result: " + Main.ExtractNumber("zg 9 e 12 b 16 10 8 10 l 7"));
+        System.out.println(" Result: " + Main.modifyAndRearrangeArr(input));
         int a[] ={-1, -2, 4, -6, 5, 7};
         int b[] = {6, 3, 4, 0};
 //        Main.allPairs(8,a,b);
@@ -239,32 +240,72 @@ public class Main {
 
 //Given a sentence containing several words and numbers. Find the largest number among them which does not contain 9. If no such number exists, return -1.
 //Note: Numbers and words are separated by spaces only. It is guaranteed that there are no leading zeroes in the answer.
-    public static long ExtractNumber(String sentence) {
-        // code here
-        long max = -1;
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < sentence.length(); i++) {
-            char c = sentence.charAt(i);
-            if (Character.isDigit(c)) {
-                sb.append(c);
-            } else {
-                if (sb.length() > 0) {
-                    String numStr = sb.toString();
-                    if (!numStr.contains("9")) {
-                        long num = Long.parseLong(numStr);
-                        max = Math.max(max, num);
-                    }
-                    sb.setLength(0);
-                }
+//    public static long ExtractNumber(String sentence) {
+//        // code here
+//        long max = -1;
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < sentence.length(); i++) {
+//            char c = sentence.charAt(i);
+//            if (Character.isDigit(c)) {
+//                sb.append(c);
+//            } else {
+//                if (sb.length() > 0) {
+//                    String numStr = sb.toString();
+//                    if (!numStr.contains("9")) {
+//                        long num = Long.parseLong(numStr);
+//                        max = Math.max(max, num);
+//                    }
+//                    sb.setLength(0);
+//                }
+//            }
+//        }
+//        if (sb.length() > 0) {
+//            String numStr = sb.toString();
+//            if (!numStr.contains("9")) {
+//                long num = Long.parseLong(numStr);
+//                max = Math.max(max, num);
+//            }
+//        }
+//        return max;
+//    }
+
+//    Given an array arr. Return the modified array in such a way that if the current and next numbers are valid numbers and are equal then double the
+//    current number value and replace the next number with 0. After the modification, rearrange the array such that all 0's are shifted to the end.
+//Note:
+//    Assume ‘0’ as the invalid number and all others as a valid number.
+//    The sequence of the valid numbers is present in the same order.
+    public static ArrayList<Integer> modifyAndRearrangeArr(int arr[]) {
+        // Complete the function
+        ArrayList<Integer> nonZerosList = new ArrayList<>();
+        ArrayList<Integer> zerosList = new ArrayList<>();
+        int crr= arr[0];
+        int nxt = 0;
+        for(int i=1; i<arr.length; i++){
+            nxt = arr[i];
+            if(crr!=0 && crr==nxt){
+                crr=crr*2;
+                nonZerosList.add(crr);
+                nxt=0;
+                crr=nxt;
+            }else if(crr!=0 && crr!=nxt){
+                nonZerosList.add(crr);
+                crr=nxt;
+            }else{
+                zerosList.add(crr);
+                crr=nxt;
             }
+
         }
-        if (sb.length() > 0) {
-            String numStr = sb.toString();
-            if (!numStr.contains("9")) {
-                long num = Long.parseLong(numStr);
-                max = Math.max(max, num);
-            }
+        if(nxt!=0){
+            nonZerosList.add(nxt);
         }
-        return max;
+        int s = zerosList.size();
+        int k=0;
+        while(s>0){
+            nonZerosList.add(zerosList.get(k));
+            k++;
+            s--;
+        }
+        return nonZerosList;
     }
 }
