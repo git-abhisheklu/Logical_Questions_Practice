@@ -115,7 +115,7 @@ public class Main {
 
         String s="geeks for geeks";
 
-        int[] newArr={8,2,1,2,1,5,7,1};
+        int[] newArr={2,5,8,10,13};
 //        System.out.println("Find two elements: "+Main.findTwoElement(newArr));
 //        Main.returnUniqueElements(newArr);
 //        int n=5, arr[ ] = {10, 11, 1, 2, 3};
@@ -130,7 +130,8 @@ public class Main {
 //        System.out.println(" Result of frequency count: " + Main.printString("Thisisdemostring", 'i',3 ));
 //        System.out.println(" Result of frequency count: " + Main.kPangram("zuobxee atwqtkq nflgomyhu w woqrb pfqschzobqcf lupvimxuqe reeabtpsox sxep a f ceero db",6));
 //        System.out.println(" Result: " + Main.ExtractNumber("zg 9 e 12 b 16 10 8 10 l 7"));
-        System.out.println(" Result: " + Main.modifyAndRearrangeArr(input));
+//        System.out.println(" Result: " + Main.modifyAndRearrangeArr(input));
+        System.out.println(" Result: " + Main.totalCount(3,newArr));
         int a[] ={-1, -2, 4, -6, 5, 7};
         int b[] = {6, 3, 4, 0};
 //        Main.allPairs(8,a,b);
@@ -274,38 +275,52 @@ public class Main {
 //Note:
 //    Assume ‘0’ as the invalid number and all others as a valid number.
 //    The sequence of the valid numbers is present in the same order.
-    public static ArrayList<Integer> modifyAndRearrangeArr(int arr[]) {
-        // Complete the function
-        ArrayList<Integer> nonZerosList = new ArrayList<>();
-        ArrayList<Integer> zerosList = new ArrayList<>();
-        int crr= arr[0];
-        int nxt = 0;
-        for(int i=1; i<arr.length; i++){
-            nxt = arr[i];
-            if(crr!=0 && crr==nxt){
-                crr=crr*2;
-                nonZerosList.add(crr);
-                nxt=0;
-                crr=nxt;
-            }else if(crr!=0 && crr!=nxt){
-                nonZerosList.add(crr);
-                crr=nxt;
-            }else{
-                zerosList.add(crr);
-                crr=nxt;
-            }
+//    public static ArrayList<Integer> modifyAndRearrangeArr(int arr[]) {
+//        // Complete the function
+//        ArrayList<Integer> nonZerosList = new ArrayList<>();
+//        ArrayList<Integer> zerosList = new ArrayList<>();
+//        int crr= arr[0];
+//        int nxt = 0;
+//        for(int i=1; i<arr.length; i++){
+//            nxt = arr[i];
+//            if(crr!=0 && crr==nxt){
+//                crr=crr*2;
+//                nonZerosList.add(crr);
+//                nxt=0;
+//                crr=nxt;
+//            }else if(crr!=0 && crr!=nxt){
+//                nonZerosList.add(crr);
+//                crr=nxt;
+//            }else{
+//                zerosList.add(crr);
+//                crr=nxt;
+//            }
+//
+//        }
+//        if(nxt!=0){
+//            nonZerosList.add(nxt);
+//        }
+//        int s = zerosList.size();
+//        int k=0;
+//        while(s>0){
+//            nonZerosList.add(zerosList.get(k));
+//            k++;
+//            s--;
+//        }
+//        return nonZerosList;
+//    }
 
+//    You are given an array arr[] of positive integers and a threshold value k. For each element in the array, divide it into the minimum number of
+//    small integers such that each divided integer is less than or equal to k. Compute the total number of these integer across all elements of the array.
+
+    public static int totalCount(int k, int[] arr) {
+        // code here
+        int count = 0;
+        for(int e:arr){
+            int value= (e+k-1)/k;
+                count = count + value;
         }
-        if(nxt!=0){
-            nonZerosList.add(nxt);
-        }
-        int s = zerosList.size();
-        int k=0;
-        while(s>0){
-            nonZerosList.add(zerosList.get(k));
-            k++;
-            s--;
-        }
-        return nonZerosList;
+        return count;
     }
+
 }
