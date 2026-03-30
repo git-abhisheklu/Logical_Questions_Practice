@@ -313,14 +313,16 @@ public class Main {
 //    You are given an array arr[] of positive integers and a threshold value k. For each element in the array, divide it into the minimum number of
 //    small integers such that each divided integer is less than or equal to k. Compute the total number of these integer across all elements of the array.
 
-    public static int totalCount(int k, int[] arr) {
-        // code here
-        int count = 0;
-        for(int e:arr){
-            int value= (e+k-1)/k;
-                count = count + value;
-        }
-        return count;
-    }
+//    public static int totalCount(int k, int[] arr) {
+//        // code here
+//        int count = 0;
+//        for(int e:arr){
+//            int value= (e+k-1)/k;
+//                count = count + value;
+//        }
+//        return count;
+//    }
+
+
 
 }
