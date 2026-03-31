@@ -131,7 +131,8 @@ public class Main {
 //        System.out.println(" Result of frequency count: " + Main.kPangram("zuobxee atwqtkq nflgomyhu w woqrb pfqschzobqcf lupvimxuqe reeabtpsox sxep a f ceero db",6));
 //        System.out.println(" Result: " + Main.ExtractNumber("zg 9 e 12 b 16 10 8 10 l 7"));
 //        System.out.println(" Result: " + Main.modifyAndRearrangeArr(input));
-        System.out.println(" Result: " + Main.totalCount(3,newArr));
+//        System.out.println(" Result: " + Main.totalCount(3,newArr));
+        System.out.println(" Result: " + Main.largestSwap("768"));
         int a[] ={-1, -2, 4, -6, 5, 7};
         int b[] = {6, 3, 4, 0};
 //        Main.allPairs(8,a,b);
@@ -323,6 +324,28 @@ public class Main {
 //        return count;
 //    }
 
+//    Given a string s, return the lexicographically largest string that can be obtained by swapping at most one pair of characters in s.
+//    String s = "768";
+    public static String largestSwap(String s) {
+        // code here
+        char[] arr = s.toCharArray();
+        int n = arr.length;
+        int[] last = new int[10];
+        for (int i = 0; i < n; i++) {
+            last[arr[i] - '0'] = i;
+        }
+        for (int i = 0; i < n; i++) {
+            for (int d = 9; d > arr[i] - '0'; d--) {
+                if (last[d] > i) {
+                    char temp = arr[i];
+                    arr[i] = arr[last[d]];
+                    arr[last[d]] = temp;
+                    return new String(arr);
+                }
+            }
+        }
+        return s;
+    }
 
 
 }
