@@ -132,7 +132,10 @@ public class Main {
 //        System.out.println(" Result: " + Main.ExtractNumber("zg 9 e 12 b 16 10 8 10 l 7"));
 //        System.out.println(" Result: " + Main.modifyAndRearrangeArr(input));
 //        System.out.println(" Result: " + Main.totalCount(3,newArr));
-        System.out.println(" Result: " + Main.largestSwap("768"));
+//        System.out.println(" Result: " + Main.largestSwap("768"));
+//        System.out.println(" Result: " + Main.minOperations(2));
+        int[] arrMax ={1,1,1,0,1,0,0,0,0,1,1};
+        System.out.println(" Result: " + Main.maxConsecBits(arrMax));
         int a[] ={-1, -2, 4, -6, 5, 7};
         int b[] = {6, 3, 4, 0};
 //        Main.allPairs(8,a,b);
@@ -326,26 +329,92 @@ public class Main {
 
 //    Given a string s, return the lexicographically largest string that can be obtained by swapping at most one pair of characters in s.
 //    String s = "768";
-    public static String largestSwap(String s) {
-        // code here
-        char[] arr = s.toCharArray();
-        int n = arr.length;
-        int[] last = new int[10];
-        for (int i = 0; i < n; i++) {
-            last[arr[i] - '0'] = i;
-        }
-        for (int i = 0; i < n; i++) {
-            for (int d = 9; d > arr[i] - '0'; d--) {
-                if (last[d] > i) {
-                    char temp = arr[i];
-                    arr[i] = arr[last[d]];
-                    arr[last[d]] = temp;
-                    return new String(arr);
-                }
-            }
-        }
-        return s;
-    }
+//    public static String largestSwap(String s) {
+//        // code here
+//        char[] arr = s.toCharArray();
+//        int n = arr.length;
+//        int[] last = new int[10];
+//        for (int i = 0; i < n; i++) {
+//            last[arr[i] - '0'] = i;
+//        }
+//        for (int i = 0; i < n; i++) {
+//            for (int d = 9; d > arr[i] - '0'; d--) {
+//                if (last[d] > i) {
+//                    char temp = arr[i];
+//                    arr[i] = arr[last[d]];
+//                    arr[last[d]] = temp;
+//                    return new String(arr);
+//                }
+//            }
+//        }
+//        return s;
+//    }
 
+//You are given an integer N. Consider an array arr having N elements where arr[i] = 2*i+1. (The array is 0-indexed)
+//You are allowed to perform the given operation on the array any number of times:
+//1) Select two indices i and j and increase arr[i] by 1 and decrease arr[j] by 1.
+//Your task is to find the minimum number of such operations required to make all the elements of the array equal.
+//    public static long minOperations(int N) {
+//        // Code here
+//        if(N<3){
+//            return 1;
+//        }
+//        int totalSum = 0;
+//        int middleIndex = N / 2;
+//        int[] arr = new int[middleIndex + 1];
+//        for (int i = 0; i <= middleIndex; i++) {
+//            arr[i] = 2 * i + 1;
+//        }
+//        for (int i = 0; i < middleIndex; i++) {
+//            int sum = arr[middleIndex] - arr[i];
+//            totalSum = totalSum + sum;
+//        }
+//        return totalSum;
+//    }
 
+//Given an array arr[] consisting of only 0’s and 1’s, return count of the maximum number of consecutive 1’s or 0’s present in the array.
+//    public static int maxConsecBits(int[] arr) {
+//        // code here
+//        int highestCountOfOne = 0;
+//        int highestCountOfZero = 0;
+//        int firstValue = arr[0];
+//        int firstValueForZero= arr[0];
+//        int countOfOne = 1;
+//        int countOfZero = 1;
+//        for(int i=1; i<arr.length; i++){
+//            if(firstValue == 1 && arr[i] == 1){
+//                countOfOne++;
+//                if(highestCountOfOne<countOfOne){
+//                    highestCountOfOne = countOfOne;
+//                }
+//                firstValue = arr[i];
+//            }else{
+//                if(highestCountOfOne<countOfOne){
+//                    highestCountOfOne = countOfOne;
+//                }
+//                firstValue=arr[i];
+//                countOfOne = 1;
+//            }
+//        }
+//        for(int i=1; i<arr.length; i++){
+//            if(firstValueForZero == 0 && arr[i] == 0){
+//                countOfZero++;
+//                if(highestCountOfZero<countOfZero){
+//                    highestCountOfZero = countOfZero;
+//                }
+//                firstValueForZero = arr[i];
+//            }else{
+//                if(highestCountOfZero<countOfZero){
+//                    highestCountOfZero = countOfZero;
+//                }
+//                firstValueForZero=arr[i];
+//                countOfZero = 1;
+//            }
+//        }
+//        if(highestCountOfOne>highestCountOfZero){
+//            return highestCountOfOne;
+//        }else{
+//            return highestCountOfZero;
+//        }
+//    }
 }
