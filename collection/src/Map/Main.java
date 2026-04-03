@@ -134,10 +134,13 @@ public class Main {
 //        System.out.println(" Result: " + Main.totalCount(3,newArr));
 //        System.out.println(" Result: " + Main.largestSwap("768"));
 //        System.out.println(" Result: " + Main.minOperations(2));
-        int[] arrMax ={1,1,1,0,1,0,0,0,0,1,1};
-        System.out.println(" Result: " + Main.maxConsecBits(arrMax));
-        int a[] ={-1, -2, 4, -6, 5, 7};
-        int b[] = {6, 3, 4, 0};
+        int[] arrMax ={2,2,1,2};
+        int a[] ={5,6,3};
+        int b[] = {8,4,2};
+//        System.out.println(" Result: " + Main.maxConsecBits(arrMax));
+//        System.out.println(" Result: " + Main.maxRepeating(3,arrMax));
+        System.out.println(" Result: " + Main.findSum(a,b));
+
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -356,20 +359,13 @@ public class Main {
 //Your task is to find the minimum number of such operations required to make all the elements of the array equal.
 //    public static long minOperations(int N) {
 //        // Code here
-//        if(N<3){
-//            return 1;
+//        long half = N / 2;
+//
+//        if (N % 2 == 0) {
+//            return half * half;
+//        } else {
+//            return half * (half + 1);
 //        }
-//        int totalSum = 0;
-//        int middleIndex = N / 2;
-//        int[] arr = new int[middleIndex + 1];
-//        for (int i = 0; i <= middleIndex; i++) {
-//            arr[i] = 2 * i + 1;
-//        }
-//        for (int i = 0; i < middleIndex; i++) {
-//            int sum = arr[middleIndex] - arr[i];
-//            totalSum = totalSum + sum;
-//        }
-//        return totalSum;
 //    }
 
 //Given an array arr[] consisting of only 0’s and 1’s, return count of the maximum number of consecutive 1’s or 0’s present in the array.
@@ -417,4 +413,112 @@ public class Main {
 //            return highestCountOfZero;
 //        }
 //    }
+
+//Given a maze with n cells. Each cell may have multiple entry points but not more than one exit point (i.e entry/exit points are unidirectional doors like valves).
+//You are given an array exits[], where exits[i] contains the exit point of the ith cell.
+//If exits[i] is -1, then ith cell doesn't have an exit.
+//The task is to find the cell with maximum weight (The weight of a cell i is the sum of all the cell indexes that have exit point as i ).
+// If there are multiple cells with the maximum weight return the cell with highest index.
+//Note: The cells are indexed with an integer value from 0 to n-1.
+//A cell i has weight 0 if no cell has exit point as i.
+//    public int maxWeightCell(int[] exits) {
+//
+//        Map<Integer, Long> map = new HashMap<>();
+//
+//        for (int i = 0; i < exits.length; i++) {
+//            if (exits[i] != -1) {
+//                map.put(exits[i], map.getOrDefault(exits[i], 0L) + i);
+//            }
+//        }
+//        long maxWeight = -1;
+//        int result = -1;
+//
+//        for (int i = 0; i < exits.length; i++) {
+//            long w = map.getOrDefault(i, 0L);
+//
+//            if (w >= maxWeight) {
+//                maxWeight = w;
+//                result = i;
+//            }
+//        }
+//
+//        return result;
+//    }
+
+//Given an array arr[]. The array contains numbers ranging from 0 to k-1 where k is a positive integer.
+// Find the maximum repeating number in this array. If there are two or more maximum repeating numbers, return the element with the least value.
+//    public static int maxRepeating(int k, int[] arr) {
+//        // code here
+//        int n = arr.length;
+//        for (int i = 0; i < n; i++) {
+//            arr[arr[i] % k] += k;
+//        }
+//        int maxVal = -1;
+//        int result = 0;
+//        for (int i = 0; i < k; i++) {
+//            if (arr[i] / k > maxVal) {
+//                maxVal = arr[i] / k;
+//                result = i;
+//            }
+//        }
+//        return result;
+//    }
+
+//    Given two numbers represented by two different arrays, arr1[] and arr2[], the task is to find their sum as a new array.
+//    Each array represents a number where each element corresponds to a digit in that number.
+//    The resulting sum array should also represent the sum of the two numbers in the same digit-by-digit format.
+//Note: No leading zeroes in array arr1 and arr2.
+        public static ArrayList<Integer> findSum(int arr1[], int arr2[]) {
+            // code here
+//            StringBuilder sb1 = new StringBuilder();
+//            StringBuilder sb2 = new StringBuilder();
+//            for (int i : arr1) {
+//                sb1.append(i);
+//            }
+//            for (int i : arr2) {
+//                sb2.append(i);
+//            }
+//            long totalSum = Long.parseLong(sb1.toString()) + Long.parseLong(sb2.toString());
+//            ArrayList<Integer> list = new ArrayList<>();
+//            while(totalSum>0){
+//                long rem = totalSum%10;
+//                list.add(Math.toIntExact(rem));
+//                totalSum = totalSum/10;
+//            }
+//            List<Integer> reversed = list.reversed();
+//            return new ArrayList<>(reversed);
+            int i = arr1.length - 1;
+            int j = arr2.length - 1;
+            int carry = 0;
+
+            List<Integer> resultList = new ArrayList<>();
+
+            while (i >= 0 || j >= 0 || carry != 0) {
+                int sum = carry;
+
+                if (i >= 0) {
+                    sum += arr1[i];
+                    i--;
+                }
+                if (j >= 0) {
+                    sum += arr2[j];
+                    j--;
+                }
+
+                resultList.add(sum % 10);
+                carry = sum / 10;
+            }
+
+            Collections.reverse(resultList);
+
+            int[] result = new int[resultList.size()];
+            for (int k = 0; k < resultList.size(); k++) {
+                result[k] = resultList.get(k);
+            }
+            ArrayList<Integer> list = new ArrayList<>();
+            for(int value:result){
+                list.add(value);
+            }
+            return list;
+        }
 }
