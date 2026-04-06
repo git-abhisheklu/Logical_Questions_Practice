@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
+    private final int value=10;
     public static void main(String[] args){
         Map<Integer, String> map = new HashMap<>();
         map.put(1, "Rakesh");
@@ -468,7 +469,7 @@ public class Main {
 //    Each array represents a number where each element corresponds to a digit in that number.
 //    The resulting sum array should also represent the sum of the two numbers in the same digit-by-digit format.
 //Note: No leading zeroes in array arr1 and arr2.
-        public static ArrayList<Integer> findSum(int arr1[], int arr2[]) {
+//        public static ArrayList<Integer> findSum(int arr1[], int arr2[]) {
             // code here
 //            StringBuilder sb1 = new StringBuilder();
 //            StringBuilder sb2 = new StringBuilder();
@@ -487,38 +488,48 @@ public class Main {
 //            }
 //            List<Integer> reversed = list.reversed();
 //            return new ArrayList<>(reversed);
-            int i = arr1.length - 1;
-            int j = arr2.length - 1;
-            int carry = 0;
+//            int i = arr1.length - 1;
+//            int j = arr2.length - 1;
+//            int carry = 0;
+//
+//            List<Integer> resultList = new ArrayList<>();
+//
+//            while (i >= 0 || j >= 0 || carry != 0) {
+//                int sum = carry;
+//
+//                if (i >= 0) {
+//                    sum += arr1[i];
+//                    i--;
+//                }
+//                if (j >= 0) {
+//                    sum += arr2[j];
+//                    j--;
+//                }
+//
+//                resultList.add(sum % 10);
+//                carry = sum / 10;
+//            }
+//
+//            Collections.reverse(resultList);
+//
+//            int[] result = new int[resultList.size()];
+//            for (int k = 0; k < resultList.size(); k++) {
+//                result[k] = resultList.get(k);
+//            }
+//            ArrayList<Integer> list = new ArrayList<>();
+//            for(int value:result){
+//                list.add(value);
+//            }
+//            return list;
+//        }
 
-            List<Integer> resultList = new ArrayList<>();
+//    Given an array A of N length. We need to calculate the next smallest greater element for each element in a given array.
+//    If the next greater element is not available in a given array then we need to fill -10000000 at that index place.
+        public static int[] greaterElement(int arr[], int n) {
+            // Complete the function
+            Arrays.sort(arr);
+            for(){
 
-            while (i >= 0 || j >= 0 || carry != 0) {
-                int sum = carry;
-
-                if (i >= 0) {
-                    sum += arr1[i];
-                    i--;
-                }
-                if (j >= 0) {
-                    sum += arr2[j];
-                    j--;
-                }
-
-                resultList.add(sum % 10);
-                carry = sum / 10;
             }
-
-            Collections.reverse(resultList);
-
-            int[] result = new int[resultList.size()];
-            for (int k = 0; k < resultList.size(); k++) {
-                result[k] = resultList.get(k);
-            }
-            ArrayList<Integer> list = new ArrayList<>();
-            for(int value:result){
-                list.add(value);
-            }
-            return list;
         }
 }
