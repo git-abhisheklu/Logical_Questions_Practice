@@ -525,31 +525,56 @@ public class Main {
 
 //    Given an array A of N length. We need to calculate the next smallest greater element for each element in a given array.
 //    If the next greater element is not available in a given array then we need to fill -10000000 at that index place.
-    public static int[] greaterElement(int arr[], int n) {
-        int[] result = new int[n];
-        int[] sorted = arr.clone();
-        Arrays.sort(sorted);
+//    public static int[] greaterElement(int arr[], int n) {
+//        int[] result = new int[n];
+//        int[] sorted = arr.clone();
+//        Arrays.sort(sorted);
+//
+//        for (int i = 0; i < n; i++) {
+//            int index = upperBound(sorted, arr[i]);
+//            if (index == n) {
+//                result[i] = -10000000;
+//            } else {
+//                result[i] = sorted[index];
+//            }
+//        }
+//        return result;
+//    }
+//    public static int upperBound(int[] arr, int target) {
+//        int left = 0, right = arr.length;
+//        while (left < right) {
+//            int mid = (left + right) / 2;
+//            if (arr[mid] <= target) {
+//                left = mid + 1;
+//            } else {
+//                right = mid;
+//            }
+//        }
+//        return left;
+//    }
 
-        for (int i = 0; i < n; i++) {
-            int index = upperBound(sorted, arr[i]);
-            if (index == n) {
-                result[i] = -10000000;
-            } else {
-                result[i] = sorted[index];
-            }
-        }
-        return result;
-    }
-    public static int upperBound(int[] arr, int target) {
-        int left = 0, right = arr.length;
-        while (left < right) {
-            int mid = (left + right) / 2;
-            if (arr[mid] <= target) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
-        }
-        return left;
-    }
+//    Given an array arr[] containing only non-negative integers, your task is to find a continuous subarray (a contiguous sequence of elements) whose sum equals a specified
+//    value target. You need to return the 1-based indices of the leftmost and rightmost elements of this subarray. You need to find the first subarray whose sum is equal to the target.
+//Note: If no such array is possible then, return [-1].
+//    public static ArrayList<Integer> subarraySum(int[] arr, int target) {
+//        // code here
+//         int n = arr.length;
+//        int left = 0;
+//        int sum = 0;
+//
+//        for (int right = 0; right < n; right++) {
+//            sum += arr[right];
+//            while (sum > target && left <= right) {
+//                sum -= arr[left];
+//                left++;
+//            }
+//            if (sum == target) {
+//                ArrayList<Integer> result = new ArrayList<>();
+//                result.add(left + 1);   // 1-based index
+//                result.add(right + 1);
+//                return result;
+//            }
+//        }
+//        return new ArrayList<>(Arrays.asList(-1));
+//    }
 }
