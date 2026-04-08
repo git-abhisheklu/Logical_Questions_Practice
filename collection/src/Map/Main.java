@@ -141,7 +141,8 @@ public class Main {
 //        System.out.println(" Result: " + Main.maxConsecBits(arrMax));
 //        System.out.println(" Result: " + Main.maxRepeating(3,arrMax));
 //        System.out.println(" Result: " + Main.findSum(a,b));
-        System.out.println(" Result: " + Main.maxSubarraySum(new int[]{2,3,-8,7,-1,2,3}));
+//        System.out.println(" Result: " + Main.maxSubarraySum(new int[]{2,3,-8,7,-1,2,3}));
+        System.out.println(" Result: " + Main.areIsomorphic("poopoopoop","pooppopooo"));
 
 //        Main.allPairs(8,a,b);
 //        int aa=10;
@@ -469,7 +470,7 @@ public class Main {
 //    Given two numbers represented by two different arrays, arr1[] and arr2[], the task is to find their sum as a new array.
 //    Each array represents a number where each element corresponds to a digit in that number.
 //    The resulting sum array should also represent the sum of the two numbers in the same digit-by-digit format.
-//Note: No leading zeroes in array arr1 and arr2.
+//    Note: No leading zeroes in array arr1 and arr2.
 //        public static ArrayList<Integer> findSum(int arr1[], int arr2[]) {
             // code here
 //            StringBuilder sb1 = new StringBuilder();
@@ -556,7 +557,7 @@ public class Main {
 
 //    Given an array arr[] containing only non-negative integers, your task is to find a continuous subarray (a contiguous sequence of elements) whose sum equals a specified
 //    value target. You need to return the 1-based indices of the leftmost and rightmost elements of this subarray. You need to find the first subarray whose sum is equal to the target.
-//Note: If no such array is possible then, return [-1].
+//    Note: If no such array is possible then, return [-1].
 //    public static ArrayList<Integer> subarraySum(int[] arr, int target) {
 //        // code here
 //         int n = arr.length;
@@ -579,17 +580,49 @@ public class Main {
 //        return new ArrayList<>(Arrays.asList(-1));
 //    }
 
-//You are given an integer array arr[]. You need to find the maximum sum of a subarray (containing at least one element) in the array arr[].
-//Note : A subarray is a continuous part of an array.
+//      You are given an integer array arr[]. You need to find the maximum sum of a subarray (containing at least one element) in the array arr[].
+//      Note : A subarray is a continuous part of an array.
 //    input= {2,3,-8,7,-1,2,3};
-    public static int maxSubarraySum(int[] arr) {
-        // Code here
-        int maxSum = arr[0];
-        int currentSum = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            currentSum = Math.max(arr[i], currentSum + arr[i]);
-            maxSum = Math.max(maxSum, currentSum);
+//    public static int maxSubarraySum(int[] arr) {
+//        // Code here
+//        int maxSum = arr[0];
+//        int currentSum = arr[0];
+//        for (int i = 1; i < arr.length; i++) {
+//            currentSum = Math.max(arr[i], currentSum + arr[i]);
+//            maxSum = Math.max(maxSum, currentSum);
+//        }
+//        return maxSum;
+//    }
+
+//    Given two strings s1 and s2 consisting of only lowercase English letters and of equal length, check if these two strings are isomorphic to each other.
+//    If the characters in s1 can be changed to get s2, then two strings, s1 and s2 are isomorphic. A character must be completely swapped out for another character
+//    while maintaining the order of the characters. A character may map to itself, but no two characters may map to the same character.
+    public static boolean areIsomorphic(String s1, String s2) {
+        // code here
+        int len1 = s1.length();
+        if(len1!=s2.length()){
+            return false;
         }
-        return maxSum;
+        LinkedHashMap<Character,Character> map1 =new LinkedHashMap<>();
+        LinkedHashMap<Character,Character> map2 =new LinkedHashMap<>();
+        for(int i=0; i<len1; i++){
+            char c1 =s1.charAt(i);
+            char c2 =s2.charAt(i);
+            if(map1.containsKey(c1)){
+                if(map1.get(c1)!=c2){
+                    return false;
+                }
+            }else{
+                map1.put(c1,c2);
+            }
+            if(map2.containsKey(c2)){
+                if(map2.get(c2)!=c1){
+                    return false;
+                }
+            }else{
+                map2.put(c2,c1);
+            }
+        }
+        return true;
     }
 }
