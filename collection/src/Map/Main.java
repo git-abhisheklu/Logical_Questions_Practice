@@ -140,7 +140,8 @@ public class Main {
         int b[] = {8,4,2};
 //        System.out.println(" Result: " + Main.maxConsecBits(arrMax));
 //        System.out.println(" Result: " + Main.maxRepeating(3,arrMax));
-        System.out.println(" Result: " + Main.findSum(a,b));
+//        System.out.println(" Result: " + Main.findSum(a,b));
+        System.out.println(" Result: " + Main.maxSubarraySum(new int[]{2,3,-8,7,-1,2,3}));
 
 //        Main.allPairs(8,a,b);
 //        int aa=10;
@@ -577,4 +578,18 @@ public class Main {
 //        }
 //        return new ArrayList<>(Arrays.asList(-1));
 //    }
+
+//You are given an integer array arr[]. You need to find the maximum sum of a subarray (containing at least one element) in the array arr[].
+//Note : A subarray is a continuous part of an array.
+//    input= {2,3,-8,7,-1,2,3};
+    public static int maxSubarraySum(int[] arr) {
+        // Code here
+        int maxSum = arr[0];
+        int currentSum = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            currentSum = Math.max(arr[i], currentSum + arr[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
 }
