@@ -142,8 +142,9 @@ public class Main {
 //        System.out.println(" Result: " + Main.maxRepeating(3,arrMax));
 //        System.out.println(" Result: " + Main.findSum(a,b));
 //        System.out.println(" Result: " + Main.maxSubarraySum(new int[]{2,3,-8,7,-1,2,3}));
-        System.out.println(" Result: " + Main.areIsomorphic("poopoopoop","pooppopooo"));
-
+//        System.out.println(" Result: " + Main.areIsomorphic("poopoopoop","pooppopooo"));
+        System.out.println(" Result: " + Main.firstElementKTime(new int[]{3,5,1,5,3,4,5,1,3,3,5,4},2));
+//1,7,4,3,4,8,7
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -597,32 +598,48 @@ public class Main {
 //    Given two strings s1 and s2 consisting of only lowercase English letters and of equal length, check if these two strings are isomorphic to each other.
 //    If the characters in s1 can be changed to get s2, then two strings, s1 and s2 are isomorphic. A character must be completely swapped out for another character
 //    while maintaining the order of the characters. A character may map to itself, but no two characters may map to the same character.
-    public static boolean areIsomorphic(String s1, String s2) {
-        // code here
-        int len1 = s1.length();
-        if(len1!=s2.length()){
-            return false;
-        }
-        LinkedHashMap<Character,Character> map1 =new LinkedHashMap<>();
-        LinkedHashMap<Character,Character> map2 =new LinkedHashMap<>();
-        for(int i=0; i<len1; i++){
-            char c1 =s1.charAt(i);
-            char c2 =s2.charAt(i);
-            if(map1.containsKey(c1)){
-                if(map1.get(c1)!=c2){
-                    return false;
-                }
-            }else{
-                map1.put(c1,c2);
+//    public static boolean areIsomorphic(String s1, String s2) {
+//        // code here
+//        int len1 = s1.length();
+//        if(len1!=s2.length()){
+//            return false;
+//        }
+//        LinkedHashMap<Character,Character> map1 =new LinkedHashMap<>();
+//        LinkedHashMap<Character,Character> map2 =new LinkedHashMap<>();
+//        for(int i=0; i<len1; i++){
+//            char c1 =s1.charAt(i);
+//            char c2 =s2.charAt(i);
+//            if(map1.containsKey(c1)){
+//                if(map1.get(c1)!=c2){
+//                    return false;
+//                }
+//            }else{
+//                map1.put(c1,c2);
+//            }
+//            if(map2.containsKey(c2)){
+//                if(map2.get(c2)!=c1){
+//                    return false;
+//                }
+//            }else{
+//                map2.put(c2,c1);
+//            }
+//        }
+//        return true;
+//    }
+
+//    Given an array arr. Return the element that occurs at least k number of times.
+//Note:
+//    If there are multiple answers, please return the first one.
+//    If there is no element found, return -1.
+    public static int firstElementKTime(int[] arr, int k) {
+        // write code
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0) + 1);
+            if(map.get(arr[i])==k){
+                return arr[i];
             }
-            if(map2.containsKey(c2)){
-                if(map2.get(c2)!=c1){
-                    return false;
-                }
-            }else{
-                map2.put(c2,c1);
-            }
         }
-        return true;
+        return -1;
     }
 }
