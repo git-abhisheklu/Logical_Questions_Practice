@@ -145,7 +145,8 @@ public class Main {
 //        System.out.println(" Result: " + Main.areIsomorphic("poopoopoop","pooppopooo"));
 //        System.out.println(" Result: " + Main.firstElementKTime(new int[]{3,5,1,5,3,4,5,1,3,3,5,4},2));
 //        System.out.println(" Result: " + Arrays.toString(Main.getFloorAndCeil(28, new int[]{80, 59, 26, 46})));
-        Main.threeWayPartition(new int[]{1, 4, 3, 6, 2, 1}, 1, 3);
+//        Main.threeWayPartition(new int[]{1, 4, 3, 6, 2, 1}, 1, 3);
+        Main.segregateElements(new int[]{1, -1, 3, 2, -7, -5, 11, 6 });
 
 //        Main.allPairs(8,a,b);
 //        int aa=10;
@@ -682,36 +683,64 @@ public class Main {
 //3) All elements greater than b appear in the end.
 //The individual elements of three sets can appear in any order. You are required to return the modified array.
 //Note: The generated output is true if you modify the given array successfully. Otherwise false.
-    public static void threeWayPartition(int arr[], int a, int b) {
-        // code here
-        ArrayList<Integer> list1= new ArrayList<>();
-        ArrayList<Integer> list2= new ArrayList<>();
-        ArrayList<Integer> list3= new ArrayList<>();
-        for(int i=0; i<arr.length; i++){
-            if(arr[i] < a){
-                list1.add(arr[i]);
-            }else if(arr[i]>=a && arr[i]<=b){
-                list2.add(arr[i]);
-            }else{
-                list3.add(arr[i]);
-            }
-        }
-        int size1=list1.size();
-        if(!list1.isEmpty()){
-            for(int i=0; i<size1;i++){
-                arr[i]=list1.get(i);
-            }
-        }
-        int size2=list2.size();
-        if(!list2.isEmpty()){
-            for(int i=0; i<size2;i++){
-                arr[size1+i]=list2.get(i);
-            }
-        }
-        if(!list3.isEmpty()){
-            for(int i=0; i<list3.size();i++){
-                arr[size1+size2+i]=list3.get(i);
-            }
-        }
+//    public static void threeWayPartition(int arr[], int a, int b) {
+//        // code here
+//        ArrayList<Integer> list1= new ArrayList<>();
+//        ArrayList<Integer> list2= new ArrayList<>();
+//        ArrayList<Integer> list3= new ArrayList<>();
+//        for(int i=0; i<arr.length; i++){
+//            if(arr[i] < a){
+//                list1.add(arr[i]);
+//            }else if(arr[i]>=a && arr[i]<=b){
+//                list2.add(arr[i]);
+//            }else{
+//                list3.add(arr[i]);
+//            }
+//        }
+//        int size1=list1.size();
+//        if(!list1.isEmpty()){
+//            for(int i=0; i<size1;i++){
+//                arr[i]=list1.get(i);
+//            }
+//        }
+//        int size2=list2.size();
+//        if(!list2.isEmpty()){
+//            for(int i=0; i<size2;i++){
+//                arr[size1+i]=list2.get(i);
+//            }
+//        }
+//        if(!list3.isEmpty()){
+//            for(int i=0; i<list3.size();i++){
+//                arr[size1+size2+i]=list3.get(i);
+//            }
+//        }
+//    }
+
+//    Given an unsorted array arr[ ] having both negative and positive integers. The task is to place all negative elements at the end of the array without
+//    changing the order of positive elements and negative elements.
+//Note: Don't return any array, just in-place on the array.
+    public static void segregateElements(int[] arr) {
+        // Your code goes here
+//        LinkedList<Integer> listPositive = new LinkedList<>();
+//        LinkedList<Integer> listNegative = new LinkedList<>();
+//
+//        for(int i=0; i<arr.length; i++){
+//            if(arr[i]<1){
+//                listNegative.add(arr[i]);
+//            }else{
+//                listPositive.add(arr[i]);
+//            }
+//        }
+//        int pSize = listPositive.size();
+//        if(!listPositive.isEmpty()){
+//            for(int i=0; i<pSize; i++){
+//                arr[i]=listPositive.get(i);
+//            }
+//        }
+//        if(!listNegative.isEmpty()){
+//            for(int i=0; i<listNegative.size(); i++){
+//                arr[pSize+i]=listNegative.get(i);
+//            }
+//        }
     }
 }
