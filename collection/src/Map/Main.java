@@ -143,8 +143,10 @@ public class Main {
 //        System.out.println(" Result: " + Main.findSum(a,b));
 //        System.out.println(" Result: " + Main.maxSubarraySum(new int[]{2,3,-8,7,-1,2,3}));
 //        System.out.println(" Result: " + Main.areIsomorphic("poopoopoop","pooppopooo"));
-        System.out.println(" Result: " + Main.firstElementKTime(new int[]{3,5,1,5,3,4,5,1,3,3,5,4},2));
-//1,7,4,3,4,8,7
+//        System.out.println(" Result: " + Main.firstElementKTime(new int[]{3,5,1,5,3,4,5,1,3,3,5,4},2));
+//        System.out.println(" Result: " + Arrays.toString(Main.getFloorAndCeil(28, new int[]{80, 59, 26, 46})));
+        Main.threeWayPartition(new int[]{1, 4, 3, 6, 2, 1}, 1, 3);
+
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -643,5 +645,73 @@ public class Main {
 //        return -1;
 //    }
 
+//    Given an unsorted array arr[] of integers and an integer x, find the floor and ceiling of x in arr[].
+//    Floor of x is the largest element which is smaller than or equal to x. Floor of x doesn’t exist if x is smaller than smallest element of arr[].
+//    Ceil of x is the smallest element which is greater than or equal to x. Ceil of x doesn’t exist if x is greater than greatest element of arr[].
+//Return an array of integers denoting the [floor, ceil]. Return -1 for floor or ceiling if the floor or ceiling is not present.
+//    public static int[] getFloorAndCeil(int x, int[] arr) {
+//        // code here
+//        int[] clone = arr.clone();
+//        int[] result = new int[2];
+//        int floor = -1;
+//        int ceil = -1;
+//        int len = arr.length;
+//        Arrays.sort(arr);
+//        if(x<arr[0]){
+//            result[0]=floor;
+//        }
+//        if(x>arr[len-1]){
+//            result[1]=ceil;
+//        }
+//        for(int i=0; i<len; i++){
+//            if(arr[i]>floor && arr[i]<=x){
+//                floor=arr[i];
+//                result[0]=floor;
+//            }
+//            if(clone[i]>=x && clone[i] < arr[len-1]){
+//                ceil=clone[i];
+//                result[1]=ceil;
+//            }
+//        }
+//        return result;
+//    }
 
+//    Given an array and a range a, b. The task is to partition the array around the range such that the array is divided into three parts.
+//1) All elements smaller than a come first.
+//2) All elements in range a to b come next.
+//3) All elements greater than b appear in the end.
+//The individual elements of three sets can appear in any order. You are required to return the modified array.
+//Note: The generated output is true if you modify the given array successfully. Otherwise false.
+    public static void threeWayPartition(int arr[], int a, int b) {
+        // code here
+        ArrayList<Integer> list1= new ArrayList<>();
+        ArrayList<Integer> list2= new ArrayList<>();
+        ArrayList<Integer> list3= new ArrayList<>();
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] < a){
+                list1.add(arr[i]);
+            }else if(arr[i]>=a && arr[i]<=b){
+                list2.add(arr[i]);
+            }else{
+                list3.add(arr[i]);
+            }
+        }
+        int size1=list1.size();
+        if(!list1.isEmpty()){
+            for(int i=0; i<size1;i++){
+                arr[i]=list1.get(i);
+            }
+        }
+        int size2=list2.size();
+        if(!list2.isEmpty()){
+            for(int i=0; i<size2;i++){
+                arr[size1+i]=list2.get(i);
+            }
+        }
+        if(!list3.isEmpty()){
+            for(int i=0; i<list3.size();i++){
+                arr[size1+size2+i]=list3.get(i);
+            }
+        }
+    }
 }
