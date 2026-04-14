@@ -747,20 +747,43 @@ public class Main {
 //    Given an array of integers arr[] that is first strictly increasing and then maybe strictly decreasing, find the bitonic point, that is the maximum element in the array.
 //Bitonic Point is a point before which elements are strictly increasing and after which elements are strictly decreasing.
 //Note: It is guaranteed that the array contains exactly one bitonic point.
-    public int findMaximum(int[] arr) {
+//    public int findMaximum(int[] arr) {
+//        // code here
+//        int result= -1;
+//        int len = arr.length;
+//        for(int i=1; i<len; i++){
+//            if(arr[i-1] < arr[i]){
+//                result=arr[i];
+//            }else{
+//                result = arr[i-1];
+//                break;
+//            }
+//        }
+//        return result;
+//    }
+
+//    Given an array arr[] consisting of only 0's and 1's. Modify the array in-place to segregate 0s onto the left side and 1s onto the right side of the array.
+    void segregate0and1(int[] arr) {
         // code here
-        int result= -1;
-        int len = arr.length;
-        for(int i=1; i<len; i++){
-            if(arr[i-1] < arr[i]){
-                result=arr[i];
+        ArrayList<Integer> zerosList = new ArrayList<>();
+        ArrayList<Integer> onesList = new ArrayList<>();
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]%10==0){
+                zerosList.add(arr[i]);
             }else{
-                result = arr[i-1];
-                break;
+                onesList.add(arr[i]);
             }
         }
-        return result;
+        int zeroLength = zerosList.size();
+        if(!zerosList.isEmpty()){
+            for(int i=0; i<zeroLength; i++){
+                arr[i]=zerosList.get(i);
+            }
+        }
+        if(!onesList.isEmpty()){
+            for(int i=0; i<onesList.size(); i++){
+                arr[zeroLength+i]=onesList.get(i);
+            }
+        }
     }
-
-
 }
