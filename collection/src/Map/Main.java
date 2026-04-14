@@ -719,7 +719,7 @@ public class Main {
 //    Given an unsorted array arr[ ] having both negative and positive integers. The task is to place all negative elements at the end of the array without
 //    changing the order of positive elements and negative elements.
 //Note: Don't return any array, just in-place on the array.
-    public static void segregateElements(int[] arr) {
+//    public static void segregateElements(int[] arr) {
         // Your code goes here
 //        LinkedList<Integer> listPositive = new LinkedList<>();
 //        LinkedList<Integer> listNegative = new LinkedList<>();
@@ -742,5 +742,25 @@ public class Main {
 //                arr[pSize+i]=listNegative.get(i);
 //            }
 //        }
+//    }
+
+//    Given an array of integers arr[] that is first strictly increasing and then maybe strictly decreasing, find the bitonic point, that is the maximum element in the array.
+//Bitonic Point is a point before which elements are strictly increasing and after which elements are strictly decreasing.
+//Note: It is guaranteed that the array contains exactly one bitonic point.
+    public int findMaximum(int[] arr) {
+        // code here
+        int result= -1;
+        int len = arr.length;
+        for(int i=1; i<len; i++){
+            if(arr[i-1] < arr[i]){
+                result=arr[i];
+            }else{
+                result = arr[i-1];
+                break;
+            }
+        }
+        return result;
     }
+
+
 }
