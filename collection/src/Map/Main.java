@@ -763,27 +763,45 @@ public class Main {
 //    }
 
 //    Given an array arr[] consisting of only 0's and 1's. Modify the array in-place to segregate 0s onto the left side and 1s onto the right side of the array.
-    void segregate0and1(int[] arr) {
-        // code here
-        ArrayList<Integer> zerosList = new ArrayList<>();
-        ArrayList<Integer> onesList = new ArrayList<>();
-        for(int i=0; i<arr.length; i++){
-            if(arr[i]%10==0){
-                zerosList.add(arr[i]);
-            }else{
-                onesList.add(arr[i]);
+//    public static void segregate0and1(int[] arr) {
+//        // code here
+//        ArrayList<Integer> zerosList = new ArrayList<>();
+//        ArrayList<Integer> onesList = new ArrayList<>();
+//        for(int i=0; i<arr.length; i++){
+//            if(arr[i]%10==0){
+//                zerosList.add(arr[i]);
+//            }else{
+//                onesList.add(arr[i]);
+//            }
+//        }
+//        int zeroLength = zerosList.size();
+//        if(!zerosList.isEmpty()){
+//            for(int i=0; i<zeroLength; i++){
+//                arr[i]=zerosList.get(i);
+//            }
+//        }
+//        if(!onesList.isEmpty()){
+//            for(int i=0; i<onesList.size(); i++){
+//                arr[zeroLength+i]=onesList.get(i);
+//            }
+//        }
+//    }
+
+//Find the first non-repeating element in a given array arr of integers and if there is not present any non-repeating element then return 0
+//Note: The array consists of only positive and negative integers and not zero.
+    public int firstNonRepeating(int[] arr) {
+        // Complete the function
+        int count = 1;
+        int len = arr.length;
+        HashMap<Integer,Integer> map =new HashMap<>();
+        for(int i=0; i<len; i++){
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1 );
+        }
+        for(int i=0; i<len; i++){
+            if(map.get(arr[i])==1){
+                return arr[i];
             }
         }
-        int zeroLength = zerosList.size();
-        if(!zerosList.isEmpty()){
-            for(int i=0; i<zeroLength; i++){
-                arr[i]=zerosList.get(i);
-            }
-        }
-        if(!onesList.isEmpty()){
-            for(int i=0; i<onesList.size(); i++){
-                arr[zeroLength+i]=onesList.get(i);
-            }
-        }
+        return 0;
     }
 }
