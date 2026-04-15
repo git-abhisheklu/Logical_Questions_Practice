@@ -789,19 +789,36 @@ public class Main {
 
 //Find the first non-repeating element in a given array arr of integers and if there is not present any non-repeating element then return 0
 //Note: The array consists of only positive and negative integers and not zero.
-    public int firstNonRepeating(int[] arr) {
-        // Complete the function
-        int count = 1;
-        int len = arr.length;
-        HashMap<Integer,Integer> map =new HashMap<>();
-        for(int i=0; i<len; i++){
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1 );
-        }
-        for(int i=0; i<len; i++){
-            if(map.get(arr[i])==1){
-                return arr[i];
+//    public int firstNonRepeating(int[] arr) {
+//        // Complete the function
+//        int count = 1;
+//        int len = arr.length;
+//        HashMap<Integer,Integer> map =new HashMap<>();
+//        for(int i=0; i<len; i++){
+//            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1 );
+//        }
+//        for(int i=0; i<len; i++){
+//            if(map.get(arr[i])==1){
+//                return arr[i];
+//            }
+//        }
+//        return 0;
+//    }
+
+//    Given a string s without spaces, the task is to remove all duplicate characters from it, keeping only the first occurrence.
+//Note: The original order of characters must be kept the same.
+    public static String removeDups(String s) {
+        // code here
+        LinkedHashSet<Character> set = new LinkedHashSet<>();
+        for(int i=0; i<s.length(); i++){
+            if(!set.contains(s.charAt(i))){
+                set.add(s.charAt(i));
             }
         }
-        return 0;
+        StringBuilder sb =new StringBuilder();
+        for(char c:set){
+            sb.append(c);
+        }
+        return sb.toString();
     }
 }
