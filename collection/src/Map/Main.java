@@ -824,22 +824,36 @@ public class Main {
 
 //    Given a string s of lowercase alphabets. The task is to find the maximum occurring character in the string s. If more than one character occurs the maximum
 //    number of times then print the lexicographically smaller character.
-    public char getMaxOccuringChar(String s) {
+//    public char getMaxOccuringChar(String s) {
+//        // code here
+//        TreeMap<Character, Integer> map= new TreeMap<>();
+//        for(int i=0; i<s.length(); i++){
+//            map.put(s.charAt(i),map.getOrDefault(s.charAt(i), 0)+1);
+//        }
+//        int result=0;
+//        char c=' ';
+//        for(Map.Entry<Character,Integer> entry:map.entrySet()){
+//            Character key = entry.getKey();
+//            Integer value1 = entry.getValue();
+//            if(value1>result){
+//                result=value1;
+//                c=key;
+//            }
+//        }
+//        return  c;
+//    }
+
+//    Given an array arr of only 0's and 1's. The array is sorted in such a manner that all the 1's are placed first and then they are followed by all the 0's.
+//    Find the count of all the 0's.
+
+    public static int countZeroes(int[] arr) {
         // code here
-        TreeMap<Character, Integer> map= new TreeMap<>();
-        for(int i=0; i<s.length(); i++){
-            map.put(s.charAt(i),map.getOrDefault(s.charAt(i), 0)+1);
-        }
-        int result=0;
-        char c=' ';
-        for(Map.Entry<Character,Integer> entry:map.entrySet()){
-            Character key = entry.getKey();
-            Integer value1 = entry.getValue();
-            if(value1>result){
-                result=value1;
-                c=key;
+        int count=0;
+        for(int i:arr){
+            if(i%10==0){
+                count++;
             }
         }
-        return  c;
+        return count;
     }
 }
