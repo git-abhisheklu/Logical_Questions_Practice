@@ -807,18 +807,39 @@ public class Main {
 
 //    Given a string s without spaces, the task is to remove all duplicate characters from it, keeping only the first occurrence.
 //Note: The original order of characters must be kept the same.
-    public static String removeDups(String s) {
+//    public static String removeDups(String s) {
+//        // code here
+//        LinkedHashSet<Character> set = new LinkedHashSet<>();
+//        for(int i=0; i<s.length(); i++){
+//            if(!set.contains(s.charAt(i))){
+//                set.add(s.charAt(i));
+//            }
+//        }
+//        StringBuilder sb =new StringBuilder();
+//        for(char c:set){
+//            sb.append(c);
+//        }
+//        return sb.toString();
+//    }
+
+//    Given a string s of lowercase alphabets. The task is to find the maximum occurring character in the string s. If more than one character occurs the maximum
+//    number of times then print the lexicographically smaller character.
+    public char getMaxOccuringChar(String s) {
         // code here
-        LinkedHashSet<Character> set = new LinkedHashSet<>();
+        TreeMap<Character, Integer> map= new TreeMap<>();
         for(int i=0; i<s.length(); i++){
-            if(!set.contains(s.charAt(i))){
-                set.add(s.charAt(i));
+            map.put(s.charAt(i),map.getOrDefault(s.charAt(i), 0)+1);
+        }
+        int result=0;
+        char c=' ';
+        for(Map.Entry<Character,Integer> entry:map.entrySet()){
+            Character key = entry.getKey();
+            Integer value1 = entry.getValue();
+            if(value1>result){
+                result=value1;
+                c=key;
             }
         }
-        StringBuilder sb =new StringBuilder();
-        for(char c:set){
-            sb.append(c);
-        }
-        return sb.toString();
+        return  c;
     }
 }
