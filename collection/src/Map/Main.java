@@ -856,4 +856,21 @@ public class Main {
         }
         return count;
     }
+
+//    Given an array arr and an element k. The task is to find the count of elements in the array that appear more than n/k times and n is length of arr.
+    public int countOccurence(int[] arr, int k) {
+        // your code here,return the answer
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int frequency = arr.length/k;
+        int count = 0;
+        for(int i=0; i<arr.length; i++){
+            map.put(arr[i], map.getOrDefault(arr[i],0)+1);
+        }
+        for(int i:map.keySet()){
+            if(map.get(i)>frequency){
+                count++;
+            }
+        }
+        return count;
+    }
 }
