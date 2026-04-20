@@ -146,7 +146,9 @@ public class Main {
 //        System.out.println(" Result: " + Main.firstElementKTime(new int[]{3,5,1,5,3,4,5,1,3,3,5,4},2));
 //        System.out.println(" Result: " + Arrays.toString(Main.getFloorAndCeil(28, new int[]{80, 59, 26, 46})));
 //        Main.threeWayPartition(new int[]{1, 4, 3, 6, 2, 1}, 1, 3);
-        Main.segregateElements(new int[]{1, -1, 3, 2, -7, -5, 11, 6 });
+//        Main.segregateElements(new int[]{1, -1, 3, 2, -7, -5, 11, 6 });
+        System.out.println(Main.minIndexChar("geeksforgeeks","set"));
+//        geek
 
 //        Main.allPairs(8,a,b);
 //        int aa=10;
@@ -846,31 +848,46 @@ public class Main {
 //    Given an array arr of only 0's and 1's. The array is sorted in such a manner that all the 1's are placed first and then they are followed by all the 0's.
 //    Find the count of all the 0's.
 
-    public static int countZeroes(int[] arr) {
-        // code here
-        int count=0;
-        for(int i:arr){
-            if(i%10==0){
-                count++;
-            }
-        }
-        return count;
-    }
+//    public static int countZeroes(int[] arr) {
+//        // code here
+//        int count=0;
+//        for(int i:arr){
+//            if(i%10==0){
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
 
 //    Given an array arr and an element k. The task is to find the count of elements in the array that appear more than n/k times and n is length of arr.
-    public int countOccurence(int[] arr, int k) {
-        // your code here,return the answer
-        HashMap<Integer,Integer> map = new HashMap<>();
-        int frequency = arr.length/k;
-        int count = 0;
-        for(int i=0; i<arr.length; i++){
-            map.put(arr[i], map.getOrDefault(arr[i],0)+1);
+//    public int countOccurence(int[] arr, int k) {
+//        // your code here,return the answer
+//        HashMap<Integer,Integer> map = new HashMap<>();
+//        int frequency = arr.length/k;
+//        int count = 0;
+//        for(int i=0; i<arr.length; i++){
+//            map.put(arr[i], map.getOrDefault(arr[i],0)+1);
+//        }
+//        for(int i:map.keySet()){
+//            if(map.get(i)>frequency){
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
+
+//    Given a string s1 and another string s2. Find the minimum index of the character in s1 that is also present in s2. if no character common in both then return -1.
+    public static int minIndexChar(String s1, String s2) {
+        // code here
+        HashSet<Character> set = new HashSet<>();
+        for(char c:s2.toCharArray()){
+            set.add(c);
         }
-        for(int i:map.keySet()){
-            if(map.get(i)>frequency){
-                count++;
+        for(int i=0; i<s1.length(); i++){
+            if(set.contains(s1.charAt(i))){
+                return i;
             }
         }
-        return count;
+        return -1;
     }
 }
