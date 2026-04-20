@@ -147,8 +147,8 @@ public class Main {
 //        System.out.println(" Result: " + Arrays.toString(Main.getFloorAndCeil(28, new int[]{80, 59, 26, 46})));
 //        Main.threeWayPartition(new int[]{1, 4, 3, 6, 2, 1}, 1, 3);
 //        Main.segregateElements(new int[]{1, -1, 3, 2, -7, -5, 11, 6 });
-        System.out.println(Main.minIndexChar("geeksforgeeks","set"));
-//        geek
+//        System.out.println(Main.minIndexChar("geeksforgeeks","set"));
+        System.out.println(Main.removeDuplicates("geEksforGEeks"));
 
 //        Main.allPairs(8,a,b);
 //        int aa=10;
@@ -877,17 +877,33 @@ public class Main {
 //    }
 
 //    Given a string s1 and another string s2. Find the minimum index of the character in s1 that is also present in s2. if no character common in both then return -1.
-    public static int minIndexChar(String s1, String s2) {
-        // code here
-        HashSet<Character> set = new HashSet<>();
-        for(char c:s2.toCharArray()){
-            set.add(c);
+//    public static int minIndexChar(String s1, String s2) {
+//        // code here
+//        HashSet<Character> set = new HashSet<>();
+//        for(char c:s2.toCharArray()){
+//            set.add(c);
+//        }
+//        for(int i=0; i<s1.length(); i++){
+//            if(set.contains(s1.charAt(i))){
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
+
+//    Given a string s which may contain lowercase and uppercase characters. The task is to remove all duplicate characters from the string and find the resultant
+//    string. The order of remaining characters in the output should be same as in the original string.
+    public static String removeDuplicates(String s) {
+        LinkedHashSet<Character> set = new LinkedHashSet<>();
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<s.length(); i++){
+            set.add(s.charAt(i));
         }
-        for(int i=0; i<s1.length(); i++){
-            if(set.contains(s1.charAt(i))){
-                return i;
-            }
+        Iterator<Character> iterator = set.iterator();
+        while(iterator.hasNext()){
+            Character next = iterator.next();
+            sb.append(next);
         }
-        return -1;
+        return sb.toString();
     }
 }
