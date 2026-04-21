@@ -148,8 +148,8 @@ public class Main {
 //        Main.threeWayPartition(new int[]{1, 4, 3, 6, 2, 1}, 1, 3);
 //        Main.segregateElements(new int[]{1, -1, 3, 2, -7, -5, 11, 6 });
 //        System.out.println(Main.minIndexChar("geeksforgeeks","set"));
-        System.out.println(Main.removeDuplicates("geEksforGEeks"));
-
+//        System.out.println(Main.removeDuplicates("geEksforGEeks"));
+        System.out.println(Main.reverse("GeeksforGeeks"));
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -893,16 +893,31 @@ public class Main {
 
 //    Given a string s which may contain lowercase and uppercase characters. The task is to remove all duplicate characters from the string and find the resultant
 //    string. The order of remaining characters in the output should be same as in the original string.
-    public static String removeDuplicates(String s) {
-        LinkedHashSet<Character> set = new LinkedHashSet<>();
+//    public static String removeDuplicates(String s) {
+//        LinkedHashSet<Character> set = new LinkedHashSet<>();
+//        StringBuilder sb = new StringBuilder();
+//        for(int i=0; i<s.length(); i++){
+//            set.add(s.charAt(i));
+//        }
+//        Iterator<Character> iterator = set.iterator();
+//        while(iterator.hasNext()){
+//            Character next = iterator.next();
+//            sb.append(next);
+//        }
+//        return sb.toString();
+//    }
+
+//    You are given a string s , the task is to reverse the string using stack.
+    public static String reverse(String S) {
+        // code here
         StringBuilder sb = new StringBuilder();
-        for(int i=0; i<s.length(); i++){
-            set.add(s.charAt(i));
+        Stack<Character> stack = new Stack<>();
+        for(int i=0; i<S.length(); i++){
+            stack.push(S.charAt(i));
         }
-        Iterator<Character> iterator = set.iterator();
-        while(iterator.hasNext()){
-            Character next = iterator.next();
-            sb.append(next);
+        while(!stack.isEmpty()) {
+            Character pop = stack.pop();
+            sb.append(pop);
         }
         return sb.toString();
     }
