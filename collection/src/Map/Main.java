@@ -908,16 +908,31 @@ public class Main {
 //    }
 
 //    You are given a string s , the task is to reverse the string using stack.
-    public static String reverse(String S) {
+//    public static String reverse(String S) {
+//        // code here
+//        StringBuilder sb = new StringBuilder();
+//        Stack<Character> stack = new Stack<>();
+//        for(int i=0; i<S.length(); i++){
+//            stack.push(S.charAt(i));
+//        }
+//        while(!stack.isEmpty()) {
+//            Character pop = stack.pop();
+//            sb.append(pop);
+//        }
+//        return sb.toString();
+//    }
+
+//    You are given a string s, consisting of lowercase alphabets. Your task is to remove consecutive duplicate characters from the string.
+    public static String removeConsecutiveCharacter(String s) {
         // code here
+        char c=s.charAt(0);
         StringBuilder sb = new StringBuilder();
-        Stack<Character> stack = new Stack<>();
-        for(int i=0; i<S.length(); i++){
-            stack.push(S.charAt(i));
-        }
-        while(!stack.isEmpty()) {
-            Character pop = stack.pop();
-            sb.append(pop);
+        sb.append(c);
+        for(int i=1; i<s.length(); i++){
+            if(c!=s.charAt(i)){
+                sb.append(s.charAt(i));
+                c = s.charAt(i);
+            }
         }
         return sb.toString();
     }
