@@ -150,7 +150,8 @@ public class Main {
 //        System.out.println(Main.minIndexChar("geeksforgeeks","set"));
 //        System.out.println(Main.removeDuplicates("geEksforGEeks"));
 //        System.out.println(Main.reverse("GeeksforGeeks"));
-        System.out.println(Main.countPairs (new int[]{-1,1,5,5,7}, 6));
+//        System.out.println(Main.countPairs (new int[]{-1,1,5,5,7}, 6));
+        System.out.println(Main.roundToNearest("26"));
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -941,18 +942,45 @@ public class Main {
 //    You are given an integer target and an array arr[]. You have to find number of pairs in arr[] which sums up to target. It is given that the elements
 //    of the arr[] are in sorted order.
 //Note: pairs should have elements of distinct indexes.
-    public static int countPairs(int arr[], int target) {
+//    public static int countPairs(int arr[], int target) {
+//        // Complete the function
+//        int count=0;
+//        for(int left=0; left<arr.length; left++){
+//            int right=arr.length-1;
+//            while(left<right){
+//                if(arr[left]+arr[right]==target){
+//                    count++;
+//                }
+//                right--;
+//            }
+//        }
+//        return count;
+//    }
+
+//    A string s is given to represent a positive number. The task is to round str to the nearest multiple of 10.  If you have two multiples equally apart from s,
+//    choose the smallest element among them.
+    public static String roundToNearest(String s) {
         // Complete the function
-        int count=0;
-        for(int left=0; left<arr.length; left++){
-            int right=arr.length-1;
-            while(left<right){
-                if(arr[left]+arr[right]==target){
-                    count++;
-                }
-                right--;
-            }
+        char[] digits = s.toCharArray();
+        int n = digits.length;
+
+        int lastDigit = digits[n - 1] - '0';
+        if (lastDigit <= 5) {
+            digits[n - 1] = '0';
+            return new String(digits);
         }
-        return count;
+        digits[n - 1] = '0';
+        int i = n - 2;
+        int carry = 1;
+        while (i >= 0 && carry == 1) {
+            int sum = (digits[i] - '0') + carry;
+            digits[i] = (char) ('0' + sum % 10);
+            carry = sum / 10;
+            i--;
+        }
+        if (carry == 1) {
+            return "1" + new String(digits);
+        }
+        return new String(digits);
     }
 }
