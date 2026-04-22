@@ -149,7 +149,8 @@ public class Main {
 //        Main.segregateElements(new int[]{1, -1, 3, 2, -7, -5, 11, 6 });
 //        System.out.println(Main.minIndexChar("geeksforgeeks","set"));
 //        System.out.println(Main.removeDuplicates("geEksforGEeks"));
-        System.out.println(Main.reverse("GeeksforGeeks"));
+//        System.out.println(Main.reverse("GeeksforGeeks"));
+        System.out.println(Main.countPairs (new int[]{-1,1,5,5,7}, 6));
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -923,17 +924,35 @@ public class Main {
 //    }
 
 //    You are given a string s, consisting of lowercase alphabets. Your task is to remove consecutive duplicate characters from the string.
-    public static String removeConsecutiveCharacter(String s) {
-        // code here
-        char c=s.charAt(0);
-        StringBuilder sb = new StringBuilder();
-        sb.append(c);
-        for(int i=1; i<s.length(); i++){
-            if(c!=s.charAt(i)){
-                sb.append(s.charAt(i));
-                c = s.charAt(i);
+//    public static String removeConsecutiveCharacter(String s) {
+//        // code here
+//        char c=s.charAt(0);
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(c);
+//        for(int i=1; i<s.length(); i++){
+//            if(c!=s.charAt(i)){
+//                sb.append(s.charAt(i));
+//                c = s.charAt(i);
+//            }
+//        }
+//        return sb.toString();
+//    }
+
+//    You are given an integer target and an array arr[]. You have to find number of pairs in arr[] which sums up to target. It is given that the elements
+//    of the arr[] are in sorted order.
+//Note: pairs should have elements of distinct indexes.
+    public static int countPairs(int arr[], int target) {
+        // Complete the function
+        int count=0;
+        for(int left=0; left<arr.length; left++){
+            int right=arr.length-1;
+            while(left<right){
+                if(arr[left]+arr[right]==target){
+                    count++;
+                }
+                right--;
             }
         }
-        return sb.toString();
+        return count;
     }
 }
