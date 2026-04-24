@@ -988,23 +988,45 @@ public class Main {
 //Given a non-negative integer(without leading zeroes) represented as an array arr. Your task is to add 1 to the number (increment the number by 1).
 // The digits are stored such that the most significant digit is at the starting index of the array.
 
-    public static Vector<Integer> addOne(int[] arr) {
+//    public static Vector<Integer> addOne(int[] arr) {
+//        // code here
+//        int n = arr.length;
+//        for (int i = n - 1; i >= 0; i--) {
+//            if (arr[i] < 9) {
+//                arr[i]++;
+//                break;
+//            }
+//            arr[i] = 0;
+//        }
+//        Vector<Integer> result = new Vector<>();
+//        if (arr[0] == 0) {
+//            result.add(1);
+//        }
+//        for (int num : arr) {
+//            result.add(num);
+//        }
+//        return result;
+//    }
+
+//    Given two sorted arrays arr1[] and arr2[]. Your task is to return the intersection of both arrays.
+//Intersection of two arrays is said to be elements that are common in both arrays. The intersection should not count duplicate elements.
+//Note: If there is no intersection then return an empty array.
+
+    public ArrayList<Integer> intersection(int arr1[], int arr2[]) {
         // code here
-        int n = arr.length;
-        for (int i = n - 1; i >= 0; i--) {
-            if (arr[i] < 9) {
-                arr[i]++;
-                break;
+        HashSet<Integer> set=new HashSet<>();
+        LinkedHashSet<Integer> uSet = new LinkedHashSet<>();
+        int len1=arr1.length;
+        int len2=arr2.length;
+        for(int i=0; i<len1; i++){
+            set.add(arr1[i]);
+        }
+        for(int i=0; i<len2; i++){
+            if(set.contains(arr2[i])){
+                uSet.add(arr2[i]);
             }
-            arr[i] = 0;
         }
-        Vector<Integer> result = new Vector<>();
-        if (arr[0] == 0) {
-            result.add(1);
-        }
-        for (int num : arr) {
-            result.add(num);
-        }
-        return result;
+
+        return new ArrayList<>(uSet);
     }
 }
