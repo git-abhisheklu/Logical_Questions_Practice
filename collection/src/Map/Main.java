@@ -151,7 +151,8 @@ public class Main {
 //        System.out.println(Main.removeDuplicates("geEksforGEeks"));
 //        System.out.println(Main.reverse("GeeksforGeeks"));
 //        System.out.println(Main.countPairs (new int[]{-1,1,5,5,7}, 6));
-        System.out.println(Main.roundToNearest("26"));
+//        System.out.println(Main.roundToNearest("26"));
+        System.out.println(Main.addOne (new int[]{5,6,7,8}));
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -959,28 +960,51 @@ public class Main {
 
 //    A string s is given to represent a positive number. The task is to round str to the nearest multiple of 10.  If you have two multiples equally apart from s,
 //    choose the smallest element among them.
-    public static String roundToNearest(String s) {
-        // Complete the function
-        char[] digits = s.toCharArray();
-        int n = digits.length;
+//    public static String roundToNearest(String s) {
+//        // Complete the function
+//        char[] digits = s.toCharArray();
+//        int n = digits.length;
+//
+//        int lastDigit = digits[n - 1] - '0';
+//        if (lastDigit <= 5) {
+//            digits[n - 1] = '0';
+//            return new String(digits);
+//        }
+//        digits[n - 1] = '0';
+//        int i = n - 2;
+//        int carry = 1;
+//        while (i >= 0 && carry == 1) {
+//            int sum = (digits[i] - '0') + carry;
+//            digits[i] = (char) ('0' + sum % 10);
+//            carry = sum / 10;
+//            i--;
+//        }
+//        if (carry == 1) {
+//            return "1" + new String(digits);
+//        }
+//        return new String(digits);
+//    }
 
-        int lastDigit = digits[n - 1] - '0';
-        if (lastDigit <= 5) {
-            digits[n - 1] = '0';
-            return new String(digits);
+//Given a non-negative integer(without leading zeroes) represented as an array arr. Your task is to add 1 to the number (increment the number by 1).
+// The digits are stored such that the most significant digit is at the starting index of the array.
+
+    public static Vector<Integer> addOne(int[] arr) {
+        // code here
+        int n = arr.length;
+        for (int i = n - 1; i >= 0; i--) {
+            if (arr[i] < 9) {
+                arr[i]++;
+                break;
+            }
+            arr[i] = 0;
         }
-        digits[n - 1] = '0';
-        int i = n - 2;
-        int carry = 1;
-        while (i >= 0 && carry == 1) {
-            int sum = (digits[i] - '0') + carry;
-            digits[i] = (char) ('0' + sum % 10);
-            carry = sum / 10;
-            i--;
+        Vector<Integer> result = new Vector<>();
+        if (arr[0] == 0) {
+            result.add(1);
         }
-        if (carry == 1) {
-            return "1" + new String(digits);
+        for (int num : arr) {
+            result.add(num);
         }
-        return new String(digits);
+        return result;
     }
 }
