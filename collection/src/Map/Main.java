@@ -152,7 +152,11 @@ public class Main {
 //        System.out.println(Main.reverse("GeeksforGeeks"));
 //        System.out.println(Main.countPairs (new int[]{-1,1,5,5,7}, 6));
 //        System.out.println(Main.roundToNearest("26"));
-        System.out.println(Main.addOne (new int[]{5,6,7,8}));
+//        System.out.println(Main.addOne (new int[]{5,6,7,8}));
+        int[] index = Main.findIndex(new int[]{1, 2, 3, 4, 5, 5}, 5);
+        for(int i:index){
+            System.out.println(i+ " ");
+        }
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -1012,21 +1016,45 @@ public class Main {
 //Intersection of two arrays is said to be elements that are common in both arrays. The intersection should not count duplicate elements.
 //Note: If there is no intersection then return an empty array.
 
-    public ArrayList<Integer> intersection(int arr1[], int arr2[]) {
-        // code here
-        HashSet<Integer> set=new HashSet<>();
-        LinkedHashSet<Integer> uSet = new LinkedHashSet<>();
-        int len1=arr1.length;
-        int len2=arr2.length;
-        for(int i=0; i<len1; i++){
-            set.add(arr1[i]);
-        }
-        for(int i=0; i<len2; i++){
-            if(set.contains(arr2[i])){
-                uSet.add(arr2[i]);
+//    public ArrayList<Integer> intersection(int arr1[], int arr2[]) {
+//        // code here
+//        HashSet<Integer> set=new HashSet<>();
+//        LinkedHashSet<Integer> uSet = new LinkedHashSet<>();
+//        int len1=arr1.length;
+//        int len2=arr2.length;
+//        for(int i=0; i<len1; i++){
+//            set.add(arr1[i]);
+//        }
+//        for(int i=0; i<len2; i++){
+//            if(set.contains(arr2[i])){
+//                uSet.add(arr2[i]);
+//            }
+//        }
+//
+//        return new ArrayList<>(uSet);
+//    }
+
+//    Given an unsorted array arr[] of integers and a key which is present in this array. You need to write a program to find the start index( index where the
+//    element is first found from left in the array ) and end index( index where the element is first found from right in the array ) return an array
+//    of length 2 with elements start index and end index.(0 based indexing is used)
+//If the key does not exist in the array then return -1 for both start and end index in this case.
+
+    public static int[] findIndex(int arr[], int key) {
+        // code here.
+        LinkedHashMap<Integer,Integer> map =new LinkedHashMap<>();
+        int[] result= new int[]{-1,-1};
+        int j=0;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]==key){
+                map.put(j, i);
+                j++;
             }
         }
-
-        return new ArrayList<>(uSet);
+        if(map.size()==0){
+            return result;
+        }
+        result[0]=map.get(0);
+        result[1]=map.get(map.size()-1);
+        return result;
     }
 }
