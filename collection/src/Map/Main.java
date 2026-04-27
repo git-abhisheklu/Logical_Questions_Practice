@@ -1,5 +1,7 @@
 package Map;
 
+import com.sun.source.tree.Tree;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     private final int value=10;
@@ -153,10 +156,16 @@ public class Main {
 //        System.out.println(Main.countPairs (new int[]{-1,1,5,5,7}, 6));
 //        System.out.println(Main.roundToNearest("26"));
 //        System.out.println(Main.addOne (new int[]{5,6,7,8}));
-        int[] index = Main.findIndex(new int[]{1, 2, 3, 4, 5, 5}, 5);
-        for(int i:index){
-            System.out.println(i+ " ");
+//        int[] index = Main.findIndex(new int[]{1, 2, 3, 4, 5, 5}, 5);
+//        for(int i:index){
+//            System.out.println(i+ " ");
+//        }
+        String[] index = Main.winner(new String[]{"john","johnny","jackie","johnny","john","jackie","jamie","jamie","john","johnny","jamie","johnny","john"}, 13);
+//        String[] index = Main.winner(new String[]{"andy","blake","clark"}, 1);
+        for(String str:index){
+            System.out.println(str + " ");
         }
+
 //        Main.allPairs(8,a,b);
 //        int aa=10;
 //        Integer bb=10;
@@ -1039,22 +1048,47 @@ public class Main {
 //    of length 2 with elements start index and end index.(0 based indexing is used)
 //If the key does not exist in the array then return -1 for both start and end index in this case.
 
-    public static int[] findIndex(int arr[], int key) {
-        // code here.
-        LinkedHashMap<Integer,Integer> map =new LinkedHashMap<>();
-        int[] result= new int[]{-1,-1};
-        int j=0;
+//    public static int[] findIndex(int arr[], int key) {
+//        // code here.
+//        LinkedHashMap<Integer,Integer> map =new LinkedHashMap<>();
+//        int[] result= new int[]{-1,-1};
+//        int j=0;
+//        for(int i=0; i<arr.length; i++){
+//            if(arr[i]==key){
+//                map.put(j, i);
+//                j++;
+//            }
+//        }
+//        if(map.size()==0){
+//            return result;
+//        }
+//        result[0]=map.get(0);
+//        result[1]=map.get(map.size()-1);
+//        return result;
+//    }
+
+//    Given an array of n names arr of candidates in an election, where each name is a string of lowercase characters. A candidate name in the array represents a
+//    vote casted to the candidate. Print the name of the candidate that received the maximum count of votes. If there is a draw between two candidates, then
+//    print lexicographically smaller name.
+    public static String[] winner(String arr[], int n) {
+        // add your code
+        TreeMap<String, Integer> map = new TreeMap<>();
         for(int i=0; i<arr.length; i++){
-            if(arr[i]==key){
-                map.put(j, i);
-                j++;
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+        }
+        int length = Integer.MAX_VALUE;
+        int count = 0;
+        String result = "";
+        String[] winner=  new String[1];
+        for(Map.Entry<String, Integer> entry:map.entrySet()){
+            if(entry.getValue()>count && entry.getKey().length()<length){
+                count=entry.getValue();
+                length=entry.getKey().length();
+                winner[0]= entry.getKey();
             }
         }
-        if(map.size()==0){
-            return result;
-        }
-        result[0]=map.get(0);
-        result[1]=map.get(map.size()-1);
-        return result;
+        winner[1]=String.valueOf(count);
+
+        return winner;
     }
 }
