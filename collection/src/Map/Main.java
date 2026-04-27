@@ -1070,25 +1070,45 @@ public class Main {
 //    Given an array of n names arr of candidates in an election, where each name is a string of lowercase characters. A candidate name in the array represents a
 //    vote casted to the candidate. Print the name of the candidate that received the maximum count of votes. If there is a draw between two candidates, then
 //    print lexicographically smaller name.
-    public static String[] winner(String arr[], int n) {
-        // add your code
-        TreeMap<String, Integer> map = new TreeMap<>();
-        for(int i=0; i<arr.length; i++){
-            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
-        }
-        int length = Integer.MAX_VALUE;
-        int count = 0;
-        String result = "";
-        String[] winner=  new String[1];
-        for(Map.Entry<String, Integer> entry:map.entrySet()){
-            if(entry.getValue()>count && entry.getKey().length()<length){
-                count=entry.getValue();
-                length=entry.getKey().length();
-                winner[0]= entry.getKey();
-            }
-        }
-        winner[1]=String.valueOf(count);
+//    public static String[] winner(String arr[], int n) {
+//        // add your code
+//        TreeMap<String, Integer> map = new TreeMap<>();
+//        for(int i=0; i<arr.length; i++){
+//            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+//        }
+//        int length = Integer.MAX_VALUE;
+//        int count = 0;
+//        String result = "";
+//        String[] winner=  new String[1];
+//        for(Map.Entry<String, Integer> entry:map.entrySet()){
+//            if(entry.getValue()>count && entry.getKey().length()<length){
+//                count=entry.getValue();
+//                length=entry.getKey().length();
+//                winner[0]= entry.getKey();
+//            }
+//        }
+//        winner[1]=String.valueOf(count);
+//
+//        return winner;
+//    }
 
-        return winner;
+//    You are given the heights of consecutive buildings. You can move from the roof of a building to the roof of the next adjacent building. You need to find
+//    the maximum number of consecutive steps you can put forward such that you gain an increase in altitude with each step.
+    public int maxStep(int arr[]) {
+        // Your code here
+        int count=0;
+        int result=0;
+        int first=arr[0];
+        for(int i=1; i<arr.length; i++){
+            if(first<arr[i]){
+                count++;
+                result = Math.max(result, count);
+            }else{
+                count=0;
+            }
+            first=arr[i];
+        }
+        return result;
     }
+
 }
