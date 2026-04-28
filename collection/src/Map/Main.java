@@ -165,7 +165,8 @@ public class Main {
 //        for(String str:index){
 //            System.out.println(str + " ");
 //        }
-        System.out.println(Main.product(new long[]{100000,100000,100000}));
+//        System.out.println(Main.product(new long[]{100000,100000,100000}));
+        System.out.println(Main.checkPangram("Bawds jog, flick quartz, vex nymph"));
 
 
 //        Main.allPairs(8,a,b);
@@ -1130,14 +1131,32 @@ public class Main {
 
 //Given an array, arr[] of positive integers. Your task is to return the product of array elements under the given modulo, mod with the value of 1000000007.
 //Note: The modulo operation finds the remainder after the division of one number by another. For example, k(mod(m))=k%m= remainder obtained when k is divided by m
-    public static long product(long arr[]) {
-        // your code here
-        // ArrayList<Integer> list = new ArrayList<>();
-        long product = 1;
-        long mod= 1000000007;
-        for(int i=0; i<arr.length; i++){
-            product = product * arr[i]%mod;
+//    public static long product(long arr[]) {
+//        // your code here
+//        long product = 1;
+//        long mod= 1000000007;
+//        for(int i=0; i<arr.length; i++){
+//            product = product * arr[i]%mod;
+//        }
+//        return product;
+//    }
+
+//    Given a string s, check if it is a "Panagram" or not. Return true if the string is a Panagram, else return false.
+//A "Panagram" is a sentence containing every letter in the English Alphabet either in lowercase or Uppercase.
+    public static boolean checkPangram(String s) {
+        // code here
+        boolean[] arr= new boolean[26];
+        String result = s.replaceAll("[^a-zA-Z]", "");
+        for(char c:result.toLowerCase().toCharArray()){
+            int present= c-'a';
+            arr[present]=true;
         }
-        return product;
+        for(boolean bol:arr){
+            if(!bol){
+                return false;
+            }
+        }
+        return true;
     }
+
 }
