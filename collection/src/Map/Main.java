@@ -1094,21 +1094,36 @@ public class Main {
 
 //    You are given the heights of consecutive buildings. You can move from the roof of a building to the roof of the next adjacent building. You need to find
 //    the maximum number of consecutive steps you can put forward such that you gain an increase in altitude with each step.
-    public int maxStep(int arr[]) {
-        // Your code here
-        int count=0;
-        int result=0;
-        int first=arr[0];
-        for(int i=1; i<arr.length; i++){
-            if(first<arr[i]){
-                count++;
-                result = Math.max(result, count);
+//    public int maxStep(int arr[]) {
+//        // Your code here
+//        int count=0;
+//        int result=0;
+//        int first=arr[0];
+//        for(int i=1; i<arr.length; i++){
+//            if(first<arr[i]){
+//                count++;
+//                result = Math.max(result, count);
+//            }else{
+//                count=0;
+//            }
+//            first=arr[i];
+//        }
+//        return result;
+//    }
+
+//    Given a string s. The task is to find the first repeated character in it. We need to find the character that occurs more than once and whose index of
+//    second occurrence is smallest. s contains only lowercase letters.
+    public static String firstRepChar(String s) {
+        // code here
+        HashSet<Character> set = new HashSet<>();
+        for(int i=0; i<s.length(); i++){
+            if(!set.contains(s.charAt(i))){
+                set.add(s.charAt(i));
             }else{
-                count=0;
+                return String.valueOf(s.charAt(i));
             }
-            first=arr[i];
         }
-        return result;
+        return "-1";
     }
 
 }
