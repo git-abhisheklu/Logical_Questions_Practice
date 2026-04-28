@@ -5,6 +5,7 @@ import com.sun.source.tree.Tree;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.*;
@@ -160,11 +161,12 @@ public class Main {
 //        for(int i:index){
 //            System.out.println(i+ " ");
 //        }
-        String[] index = Main.winner(new String[]{"john","johnny","jackie","johnny","john","jackie","jamie","jamie","john","johnny","jamie","johnny","john"}, 13);
-//        String[] index = Main.winner(new String[]{"andy","blake","clark"}, 1);
-        for(String str:index){
-            System.out.println(str + " ");
-        }
+//        String[] index = Main.winner(new String[]{"john","johnny","jackie","johnny","john","jackie","jamie","jamie","john","johnny","jamie","johnny","john"}, 13);
+//        for(String str:index){
+//            System.out.println(str + " ");
+//        }
+        System.out.println(Main.product(new long[]{100000,100000,100000}));
+
 
 //        Main.allPairs(8,a,b);
 //        int aa=10;
@@ -1113,17 +1115,29 @@ public class Main {
 
 //    Given a string s. The task is to find the first repeated character in it. We need to find the character that occurs more than once and whose index of
 //    second occurrence is smallest. s contains only lowercase letters.
-    public static String firstRepChar(String s) {
-        // code here
-        HashSet<Character> set = new HashSet<>();
-        for(int i=0; i<s.length(); i++){
-            if(!set.contains(s.charAt(i))){
-                set.add(s.charAt(i));
-            }else{
-                return String.valueOf(s.charAt(i));
-            }
-        }
-        return "-1";
-    }
+//    public static String firstRepChar(String s) {
+//        // code here
+//        HashSet<Character> set = new HashSet<>();
+//        for(int i=0; i<s.length(); i++){
+//            if(!set.contains(s.charAt(i))){
+//                set.add(s.charAt(i));
+//            }else{
+//                return String.valueOf(s.charAt(i));
+//            }
+//        }
+//        return "-1";
+//    }
 
+//Given an array, arr[] of positive integers. Your task is to return the product of array elements under the given modulo, mod with the value of 1000000007.
+//Note: The modulo operation finds the remainder after the division of one number by another. For example, k(mod(m))=k%m= remainder obtained when k is divided by m
+    public static long product(long arr[]) {
+        // your code here
+        // ArrayList<Integer> list = new ArrayList<>();
+        long product = 1;
+        long mod= 1000000007;
+        for(int i=0; i<arr.length; i++){
+            product = product * arr[i]%mod;
+        }
+        return product;
+    }
 }
