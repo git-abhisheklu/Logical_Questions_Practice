@@ -9,6 +9,7 @@ import java.math.BigInteger;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -1143,20 +1144,36 @@ public class Main {
 
 //    Given a string s, check if it is a "Panagram" or not. Return true if the string is a Panagram, else return false.
 //A "Panagram" is a sentence containing every letter in the English Alphabet either in lowercase or Uppercase.
-    public static boolean checkPangram(String s) {
+//    public static boolean checkPangram(String s) {
+//        // code here
+//        boolean[] arr= new boolean[26];
+//        String result = s.replaceAll("[^a-zA-Z]", "");
+//        for(char c:result.toLowerCase().toCharArray()){
+//            int present= c-'a';
+//            arr[present]=true;
+//        }
+//        for(boolean bol:arr){
+//            if(!bol){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+
+//    You are given two arrays arr1 and arr2. The task is to find the minimum value of arr1[0] * arr2[0] + arr1[1] * arr2[1] + .... + arr1[N-1] * arr2[N-1], where
+//    the shuffling of elements of arrays arr1 and arr2 is allowed.
+    public long minValue(List<Integer> arr1, List<Integer> arr2) {
         // code here
-        boolean[] arr= new boolean[26];
-        String result = s.replaceAll("[^a-zA-Z]", "");
-        for(char c:result.toLowerCase().toCharArray()){
-            int present= c-'a';
-            arr[present]=true;
+        Collections.sort(arr1);
+        arr2.sort(Comparator.reverseOrder());
+        int size= arr1.size();
+        int i=0;
+        long sum = 0;
+        while(i<size){
+            sum = sum + (arr1.get(i) * arr2.get(i));
+            i++;
         }
-        for(boolean bol:arr){
-            if(!bol){
-                return false;
-            }
-        }
-        return true;
+        return sum;
     }
 
 }
