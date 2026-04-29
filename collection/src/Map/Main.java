@@ -167,7 +167,8 @@ public class Main {
 //            System.out.println(str + " ");
 //        }
 //        System.out.println(Main.product(new long[]{100000,100000,100000}));
-        System.out.println(Main.checkPangram("Bawds jog, flick quartz, vex nymph"));
+//        System.out.println(Main.checkPangram("Bawds jog, flick quartz, vex nymph"));
+        System.out.println(Main.isMaxHeap(new int[]{90, 15, 10, 7, 12, 2}));
 
 
 //        Main.allPairs(8,a,b);
@@ -1185,6 +1186,24 @@ public class Main {
             arr[i]=arr[i+2];
             arr[i+2]=temp;
         }
+    }
+
+//    Given an array arr[], determine whether it represents the level-order traversal of a valid max heap. Return true if it does; otherwise, return false.
+    public static boolean isMaxHeap(int[] arr) {
+        // code here
+        int n = arr.length;
+        for (int i = 0; i <= (n / 2) - 1; i++) {
+
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+            if ( left<n && arr[i] < arr[left]) {
+                return false;
+            }
+            if ( right<n && arr[i] < arr[right]) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
