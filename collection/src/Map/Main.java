@@ -1162,18 +1162,29 @@ public class Main {
 
 //    You are given two arrays arr1 and arr2. The task is to find the minimum value of arr1[0] * arr2[0] + arr1[1] * arr2[1] + .... + arr1[N-1] * arr2[N-1], where
 //    the shuffling of elements of arrays arr1 and arr2 is allowed.
-    public long minValue(List<Integer> arr1, List<Integer> arr2) {
-        // code here
-        Collections.sort(arr1);
-        arr2.sort(Comparator.reverseOrder());
-        int size= arr1.size();
-        int i=0;
-        long sum = 0;
-        while(i<size){
-            sum = sum + (arr1.get(i) * arr2.get(i));
-            i++;
+//    public long minValue(List<Integer> arr1, List<Integer> arr2) {
+//        // code here
+//        Collections.sort(arr1);
+//        arr2.sort(Comparator.reverseOrder());
+//        int size= arr1.size();
+//        int i=0;
+//        long sum = 0;
+//        while(i<size){
+//            sum = sum + (arr1.get(i) * arr2.get(i));
+//            i++;
+//        }
+//        return sum;
+//    }
+
+//    Given an array arr of positive integers. The task is to swap every ith element of the array with (i+2)th element.
+    public void swapElements(int[] arr) {
+        // Code here
+        int len = arr.length;
+        for(int i=0; i<len-2; i++){
+            int temp = arr[i];
+            arr[i]=arr[i+2];
+            arr[i+2]=temp;
         }
-        return sum;
     }
 
 }
