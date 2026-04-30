@@ -1178,32 +1178,50 @@ public class Main {
 //    }
 
 //    Given an array arr of positive integers. The task is to swap every ith element of the array with (i+2)th element.
-    public void swapElements(int[] arr) {
-        // Code here
-        int len = arr.length;
-        for(int i=0; i<len-2; i++){
-            int temp = arr[i];
-            arr[i]=arr[i+2];
-            arr[i+2]=temp;
-        }
-    }
+//    public void swapElements(int[] arr) {
+//        // Code here
+//        int len = arr.length;
+//        for(int i=0; i<len-2; i++){
+//            int temp = arr[i];
+//            arr[i]=arr[i+2];
+//            arr[i+2]=temp;
+//        }
+//    }
 
 //    Given an array arr[], determine whether it represents the level-order traversal of a valid max heap. Return true if it does; otherwise, return false.
-    public static boolean isMaxHeap(int[] arr) {
-        // code here
-        int n = arr.length;
-        for (int i = 0; i <= (n / 2) - 1; i++) {
+//    public static boolean isMaxHeap(int[] arr) {
+//        // code here
+//        int n = arr.length;
+//        for (int i = 0; i <= (n / 2) - 1; i++) {
+//
+//            int left = 2 * i + 1;
+//            int right = 2 * i + 2;
+//            if ( left<n && arr[i] < arr[left]) {
+//                return false;
+//            }
+//            if ( right<n && arr[i] < arr[right]) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
-            int left = 2 * i + 1;
-            int right = 2 * i + 2;
-            if ( left<n && arr[i] < arr[left]) {
-                return false;
-            }
-            if ( right<n && arr[i] < arr[right]) {
-                return false;
+//    Given an array height representing the heights of buildings. You have to count the buildings that will see the sunrise (Assume the sun rises on the side of
+//    the array starting point).
+//Note: The height of the building should be strictly greater than the height of the buildings left in order to see the sun.
+    public static int countBuildings(int[] height) {
+        // code here
+        int taller = height[0];
+        int count = 1;
+        for(int i=1; i<height.length; i++){
+            if(taller>=height[i]){
+                continue;
+            }else{
+                taller=height[i];
+                count++;
             }
         }
-        return true;
+        return count;
     }
 
 }
