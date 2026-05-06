@@ -1251,18 +1251,47 @@ public class Main {
 //If the number is divisible by both 3 and 5, you print "FizzBuzz" (without quotes)
 //In any other case, you print the number itself
 //Note: You should add a newline character after print() statement.
-    public static void fizzBuzz(int number) {
-        // code here.
-        if(number%3==0 && number%5==0){
-            System.out.println("FizzBuzz");
-        } else if(number%3==0){
-            System.out.println("Fizz");
-        } else if(number%5==0){
-            System.out.println("Buzz");
-        }else{
-            System.out.println(number);
+//    public static void fizzBuzz(int number) {
+//        // code here.
+//        if(number%3==0 && number%5==0){
+//            System.out.println("FizzBuzz");
+//        } else if(number%3==0){
+//            System.out.println("Fizz");
+//        } else if(number%5==0){
+//            System.out.println("Buzz");
+//        }else{
+//            System.out.println(number);
+//            System.out.println();
+//        }
+//    }
+
+//    There are times when your answer is a floating point that contains undesired amount of digits after decimal.
+//Here, we'll learn how to get a precise answer out of a floating number. You are given two floating numbers a and b.
+//You need to print the value of a/b rounded to exactly 3 decimal places.
+//    You may use library precision methods.
+//    You need to print the result (return type is void) without any newline or space around it.
+//    public void precise(float a, float b) {
+//        // code here
+//        System.out.printf("%.3f", a/b);
+//        System.out.println();
+//    }
+
+//Given a sorted array arr[] of positive integers. The task is to find the closest value in the array to the given number k. The array may contain duplicate values.
+//Note: If the difference with k is the same for two values in the array return the greater value.
+    public static int findClosest(int[] arr, int k) {
+        // code here
+        int len = arr.length;
+        int closest=arr[0];
+        int diff=Integer.MAX_VALUE;
+        for(int i=0; i<len; i++){
+            int i1 =Math.abs(arr[i] - k);
+            if(i1<diff){
+                diff=i1;
+                closest=arr[i];
+            }else if(i1==diff && closest<arr[i]){
+                closest=arr[i];
+            }
         }
+        return closest;
     }
-
-
 }
