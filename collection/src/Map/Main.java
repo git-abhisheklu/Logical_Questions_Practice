@@ -1278,20 +1278,33 @@ public class Main {
 
 //Given a sorted array arr[] of positive integers. The task is to find the closest value in the array to the given number k. The array may contain duplicate values.
 //Note: If the difference with k is the same for two values in the array return the greater value.
-    public static int findClosest(int[] arr, int k) {
-        // code here
-        int len = arr.length;
-        int closest=arr[0];
-        int diff=Integer.MAX_VALUE;
-        for(int i=0; i<len; i++){
-            int i1 =Math.abs(arr[i] - k);
-            if(i1<diff){
-                diff=i1;
-                closest=arr[i];
-            }else if(i1==diff && closest<arr[i]){
-                closest=arr[i];
-            }
-        }
-        return closest;
+//    public static int findClosest(int[] arr, int k) {
+//        // code here
+//        int len = arr.length;
+//        int closest=arr[0];
+//        int diff=Integer.MAX_VALUE;
+//        for(int i=0; i<len; i++){
+//            int i1 =Math.abs(arr[i] - k);
+//            if(i1<diff){
+//                diff=i1;
+//                closest=arr[i];
+//            }else if(i1==diff && closest<arr[i]){
+//                closest=arr[i];
+//            }
+//        }
+//        return closest;
+//    }
+
+//Given an integer N and an integer D, rotate the binary representation of the integer N by D digits to the left as well as right and return the
+// results in their decimal representation after each of the rotation.
+//Note: Integer N is stored using 16 bits. i.e. 12 will be stored as 0000000000001100. Output array should follow {leftrotation, rightrotation}.
+    public static ArrayList<Integer> rotate(int N, int D) {
+        // your code here
+        int bits = 16;
+        D = D % bits;
+        int left = ((N << D) | (N >> (bits - D))) & 0xFFFF;
+        int right = ((N >> D) | (N << (bits - D))) & 0xFFFF;
+
+        return new ArrayList<>(Arrays.asList(left, right));
     }
 }
