@@ -1,12 +1,10 @@
 package StreamAPI;
 
-import java.util.Arrays;
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main{
-    public static void main(String[] args) {
+public class Main {
+    public static void main(String[] args) throws IOException {
 //        List<String> stringList= Arrays.asList("Abhishek", "Rohit", "Rohan", "Kripa", "Sejal", "Sanam");
 //        Iterator<String> iterator = stringList.iterator();
 //        while(iterator.hasNext()){
@@ -16,7 +14,7 @@ public class Main{
 //        }
 
 //        1.) Determine the highest value present in a numeric list
-        List<Integer> listOfInteger = Arrays.asList(12,34,2,34,65,23,76,112);
+        List<Integer> listOfInteger = Arrays.asList(12, 34, 2, 34, 65, 23, 76, 112);
         System.out.println(listOfInteger);
 //        Integer max = listOfInteger.stream().max(Integer::compareTo).orElseThrow();
 //        System.out.println("Highest value is: " + max);
@@ -158,8 +156,36 @@ public class Main{
 //        test1.id = 20;
 //        System.out.println(test1);
 //        System.out.println(test2);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hello");
+        HashMap<StringBuilder, Integer> map = new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            sb.append(i);
+            map.put(sb, i);
+        }
+        for (Map.Entry<StringBuilder, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+        }
+        ArrayList<Order> arrayList = new ArrayList<>();
+        Order order = new Order(100L, "Apple", "1000");
+        Order order1 = new Order(101L, "Pineapple", "500");
+        Order order2 = new Order(102L, "Orange", "800");
+
+        arrayList.add(order2);
+        arrayList.add(order);
+        arrayList.add(order1);
+        arrayList.add(order);
+        arrayList.add(order2);
+        arrayList.add(order1);
+        System.out.println("Just Printing the list in their order of insertion: " + arrayList + "\n");
+        Collections.sort(arrayList, order);
+        System.out.println("Printing list of order in descending order of their orderName: " + arrayList);
+
     }
+
 }
+
 
 class Test implements Cloneable {
     int id;

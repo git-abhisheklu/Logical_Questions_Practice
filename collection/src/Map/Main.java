@@ -169,7 +169,7 @@ public class Main {
 //        System.out.println(Main.product(new long[]{100000,100000,100000}));
 //        System.out.println(Main.checkPangram("Bawds jog, flick quartz, vex nymph"));
 //        System.out.println(Main.isMaxHeap(new int[]{90, 15, 10, 7, 12, 2}));
-        Main.sort012(new int[]{0, 1, 2, 2, 2, 0, 0, 1});
+//        Main.sort012(new int[]{0, 1, 2, 2, 2, 0, 0, 1});
 
 //        Main.allPairs(8,a,b);
 //        int aa=10;
@@ -1311,28 +1311,28 @@ public class Main {
 //Given an array arr[] containing only 0s, 1s, and 2s. Sort the array in ascending order.
 //Note: You need to solve this problem without utilizing the built-in sort function.
 //    arr={0,0,1,2,1,1,0,0,2}
-    public static void sort012(int[] arr) {
-        // code here
-        int low = 0, mid = 0;
-        int high = arr.length - 1;
-
-        while (mid <= high) {
-            if (arr[mid] == 0) {
-                int temp = arr[low];
-                arr[low] = arr[mid];
-                arr[mid] = temp;
-                low++;
-                mid++;
-            }
-            else if (arr[mid] == 1) {
-                mid++;
-            }
-            else {
-                int temp = arr[mid];
-                arr[mid] = arr[high];
-                arr[high] = temp;
-                high--;
-            }
-        }
-    }
+//    public static void sort012(int[] arr) {
+//        // code here
+//        int low = 0, mid = 0;
+//        int high = arr.length - 1;
+//
+//        while (mid <= high) {
+//            if (arr[mid] == 0) {
+//                int temp = arr[low];
+//                arr[low] = arr[mid];
+//                arr[mid] = temp;
+//                low++;
+//                mid++;
+//            }
+//            else if (arr[mid] == 1) {
+//                mid++;
+//            }
+//            else {
+//                int temp = arr[mid];
+//                arr[mid] = arr[high];
+//                arr[high] = temp;
+//                high--;
+//            }
+//        }
+//    }
 }
