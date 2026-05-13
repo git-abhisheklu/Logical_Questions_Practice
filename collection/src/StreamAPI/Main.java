@@ -133,69 +133,69 @@ public class Main {
 //        List<String> list = str.stream().filter(n-> n!=null).toList() ;
 //        System.out.println(list);
 
-//        Integer num1 = 10;
+//        ***** Some Tricky Questions *****
+
+//   (1)  Integer num1 = 10;
 //        Integer num2;
 //        num2 = num1;
-//        System.out.println(num1);
+//        System.out.println("num1 :"+num1);
 //        num1 = 20;
-//        System.out.println(num1);
-//        System.out.println(num2);
+//        System.out.println("num1 :"+num1);
+//        System.out.println("num2 :"+num2);
 
-//        int a =10;
+//   (2)  int a =10;
 //        System.out.println("a: "+a);
 //        int b;
 //        b=a;
 //        a=20;
-//        System.out.println("b: "+b);
 //        System.out.println("a: "+a);
+//        System.out.println("b: "+b);
 
-//        Test test1 = new Test(10);
-//        Test test2 =
-//                test2 = test1.clone();
+//   (3)  Integer i1 = 100;
+//        Integer i2= 100;
+//        int i3=100;
+//        int i4=100;
+//        System.out.println("i1+i2: " + (i1==i2));
+//        System.out.println("i3+i4: "+(i3==i4));
+
+//   (4)  Test test1 = new Test(10);
+//        Test test2 = null;
+//        test2 = test1.clone();
 //        System.out.println(test1);
 //        test1.id = 20;
 //        System.out.println(test1);
 //        System.out.println(test2);
-        StringBuilder sb = new StringBuilder();
-        sb.append("Hello");
-        HashMap<StringBuilder, Integer> map = new HashMap<>();
-        for (int i = 0; i < 10; i++) {
-            sb.append(i);
-            map.put(sb, i);
-        }
-        for (Map.Entry<StringBuilder, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue());
-        }
 
-        ArrayList<Employee> employeeList = new ArrayList<>();
-        Employee emp1 = new Employee(1001L,"Kartik", "Developer");
-        Employee emp2 = new Employee(1002L,"Suraj", "Tester");
-        Employee emp3 = new Employee(1003L,"Rohit", "Manager");
-        employeeList.add(emp2);
-        employeeList.add(emp3);
-        employeeList.add(emp1);
-        employeeList.add(emp3);
-        employeeList.add(emp1);
-        employeeList.add(emp2);
-        System.out.println("Printing the employee list in their order of insertion: " + employeeList+"\n");
-        Collections.sort(employeeList);
-        System.out.println("Printing employee list after sorting using comparable: " + employeeList);
+//      ***** Comparable Vs Comparator *****
+//        ArrayList<Employee> employeeList = new ArrayList<>();
+//        Employee emp1 = new Employee(1001L,"Kartik", "Developer");
+//        Employee emp2 = new Employee(1002L,"Suraj", "Tester");
+//        Employee emp3 = new Employee(1003L,"Rohit", "Manager");
+//        employeeList.add(emp2);
+//        employeeList.add(emp3);
+//        employeeList.add(emp1);
+//        employeeList.add(emp3);
+//        employeeList.add(emp1);
+//        employeeList.add(emp2);
+//        System.out.println("Printing the employee list in their order of insertion: " + employeeList+"\n");
+//        Collections.sort(employeeList);
+//        System.out.println("Printing employee list after sorting using comparable: " + employeeList);
+//
+//        ArrayList<Order> orderList = new ArrayList<>();
+//        Order order = new Order(100L, "Apple", 1000L);
+//        Order order1 = new Order(101L, "Pineapple", 500L);
+//        Order order2 = new Order(102L, "Orange", 800L);
+//
+//        orderList.add(order);
+//        orderList.add(order1);
+//        orderList.add(order);
+//        orderList.add(order2);
+//        orderList.add(order1);
+//        orderList.add(order2);
+//        System.out.println("Printing the order list in their order of insertion: " + orderList + "\n");
+//        Collections.sort(orderList, order);
+//        System.out.println("Printing list of order in ascending order of their orderName: " + orderList);
 
-        ArrayList<Order> orderList = new ArrayList<>();
-        Order order = new Order(100L, "Apple", 1000L);
-        Order order1 = new Order(101L, "Pineapple", 500L);
-        Order order2 = new Order(102L, "Orange", 800L);
-
-        orderList.add(order);
-        orderList.add(order1);
-        orderList.add(order);
-        orderList.add(order2);
-        orderList.add(order1);
-        orderList.add(order2);
-        System.out.println("Printing the order list in their order of insertion: " + orderList + "\n");
-        Collections.sort(orderList, order);
-        System.out.println("Printing list of order in ascending order of their orderName: " + orderList);
 
     }
 }
