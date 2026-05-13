@@ -5,20 +5,11 @@ import java.util.Comparator;
 public class Order implements Comparator<Order>{
     private Long orderId;
     private String orderName;
-    private String orderPrice;
+    private Long orderPrice;
 
     public Order(){}
 
-    public Order(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Order(Long orderId, String orderName) {
-        this.orderId = orderId;
-        this.orderName = orderName;
-    }
-
-    public Order(Long orderId, String orderName, String orderPrice) {
+    public Order(Long orderId, String orderName, Long orderPrice) {
         this.orderId = orderId;
         this.orderName = orderName;
         this.orderPrice = orderPrice;
@@ -32,7 +23,7 @@ public class Order implements Comparator<Order>{
         return orderName;
     }
 
-    public String getOrderPrice() {
+    public Long getOrderPrice() {
         return orderPrice;
     }
 
@@ -47,6 +38,6 @@ public class Order implements Comparator<Order>{
 
     @Override
     public int compare(Order o1, Order o2) {
-        return o2.getOrderName().compareTo(o1.getOrderName());
+        return o1.getOrderPrice().compareTo(o2.getOrderPrice());
     }
 }

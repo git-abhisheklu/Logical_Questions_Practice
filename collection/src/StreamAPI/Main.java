@@ -167,25 +167,38 @@ public class Main {
             System.out.println(entry.getKey());
             System.out.println(entry.getValue());
         }
-        ArrayList<Order> arrayList = new ArrayList<>();
-        Order order = new Order(100L, "Apple", "1000");
-        Order order1 = new Order(101L, "Pineapple", "500");
-        Order order2 = new Order(102L, "Orange", "800");
 
-        arrayList.add(order2);
-        arrayList.add(order);
-        arrayList.add(order1);
-        arrayList.add(order);
-        arrayList.add(order2);
-        arrayList.add(order1);
-        System.out.println("Just Printing the list in their order of insertion: " + arrayList + "\n");
-        Collections.sort(arrayList, order);
-        System.out.println("Printing list of order in descending order of their orderName: " + arrayList);
+        ArrayList<Employee> employeeList = new ArrayList<>();
+        Employee emp1 = new Employee(1001L,"Kartik", "Developer");
+        Employee emp2 = new Employee(1002L,"Suraj", "Tester");
+        Employee emp3 = new Employee(1003L,"Rohit", "Manager");
+        employeeList.add(emp2);
+        employeeList.add(emp3);
+        employeeList.add(emp1);
+        employeeList.add(emp3);
+        employeeList.add(emp1);
+        employeeList.add(emp2);
+        System.out.println("Printing the employee list in their order of insertion: " + employeeList+"\n");
+        Collections.sort(employeeList);
+        System.out.println("Printing employee list after sorting using comparable: " + employeeList);
+
+        ArrayList<Order> orderList = new ArrayList<>();
+        Order order = new Order(100L, "Apple", 1000L);
+        Order order1 = new Order(101L, "Pineapple", 500L);
+        Order order2 = new Order(102L, "Orange", 800L);
+
+        orderList.add(order);
+        orderList.add(order1);
+        orderList.add(order);
+        orderList.add(order2);
+        orderList.add(order1);
+        orderList.add(order2);
+        System.out.println("Printing the order list in their order of insertion: " + orderList + "\n");
+        Collections.sort(orderList, order);
+        System.out.println("Printing list of order in ascending order of their orderName: " + orderList);
 
     }
-
 }
-
 
 class Test implements Cloneable {
     int id;
@@ -215,4 +228,3 @@ class Test implements Cloneable {
         }
     }
 }
-
