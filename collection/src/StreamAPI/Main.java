@@ -1,7 +1,14 @@
 package StreamAPI;
 
+import javax.swing.text.html.Option;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.*;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -14,8 +21,8 @@ public class Main {
 //        }
 
 //        1.) Determine the highest value present in a numeric list
-        List<Integer> listOfInteger = Arrays.asList(12, 34, 2, 34, 65, 23, 76, 112);
-        System.out.println(listOfInteger);
+//        List<Integer> listOfInteger = Arrays.asList(12, 34, 2, 34, 65, 23, 76, 112);
+//        System.out.println(listOfInteger);
 //        Integer max = listOfInteger.stream().max(Integer::compareTo).orElseThrow();
 //        System.out.println("Highest value is: " + max);
 
@@ -197,34 +204,245 @@ public class Main {
 //        System.out.println("Printing list of order in ascending order of their orderName: " + orderList);
 
 
+
+
+//        List<Integer> syncList = Collections.synchronizedList(new ArrayList<>());
+//        Runnable task = () -> {
+//            for (int i = 0; i < 10; i++) {
+//                syncList.add(i);
+//                System.out.println(Thread.currentThread().getName() + " added " + i +". Size: " + syncList.size());
+//            }
+//        };
+//        Thread t1 = new Thread(task, "Thread-1");
+//        Thread t2 = new Thread(task, "Thread-2");
+//        Thread t3 = new Thread(task, "Thread-3");
+//        t1.start();
+//        t2.start();
+//        t3.start();
+//        try {
+//            t1.join();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        try {
+//            t2.join();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        try {
+//            t3.join();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        System.out.println("\nFinal list size: " + syncList.size());
+//        System.out.println("Final list: " + syncList);
+
+//        1.) Determine the highest value present in a numeric list
+        ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(1,5,2,6,4,8,5,3,2,1,4,448,3,49));
+        ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(1,5,2,6,4,8,5,3,2,1,4));
+        String str = "HelloHello";
+        ArrayList<Integer> newList = list1;
+//        System.out.println("Here is the result: "+result);
+
+//        1. Palindrome Number(Check whether the number is palindrome or not?)
+//        System.out.println("Enter the number: ");
+//        Scanner sc= new Scanner(System.in);
+//        int number= sc.nextInt();
+//        int reference=number;
+//        int sum = 0;
+//        while(number>0){
+//            int rem = number % 10;
+//            sum = sum * 10 + rem;
+//            number=number/10;
+//        }
+//        if(reference!=sum){
+//            System.out.println("The entered number is not a palindrome: " + reference);
+//        }else{
+//            System.out.println("The entered number is a palindrome: " + reference);
+//        }
+
+//        2. Armstrong Number(Check whether the number is Armstrong number or not?)
+//        System.out.println("Enter the number: ");
+//        Scanner sc= new Scanner(System.in);
+//        int number= sc.nextInt();
+//        int reference = number;
+
+//        3. Print the factorial of a number
+//        System.out.println("Enter the number: ");
+//        Scanner sc= new Scanner(System.in);
+//        int number= sc.nextInt();
+//        int factorial= number;
+//        if (number<1){
+//            System.out.println("Please enter a valid number: " + number);
+//        }else{
+//            for(int i=1; i<number; i++){
+//                factorial = factorial * (number-i);
+//            }
+//            System.out.println("The factorial of a number is: " + factorial );
+//        }
+
+//        4. Print the prime numbers from 2 to 100.
+//        System.out.println("Enter the number: ");
+//        Scanner sc= new Scanner(System.in);
+//        int number= sc.nextInt();
+//        int reference = number;
+
+//        for(int i=2; i<=100; i++ ){
+//            int j = 1;
+//            int count = 0;
+//            while(j<=i){
+//                if(i%j==0){
+//                    count++;
+//                }
+//                j++;
+//            }
+//            if(count==2){
+//                System.out.print(i + ", ");
+//            }
+//        }
+
+//        5. Print the Fibonacci series for a given number.
+//        System.out.println("Enter the number: ");
+//        Scanner sc= new Scanner(System.in);
+//        int number= sc.nextInt();
+//        int first = 0;
+//        int second = 1;
+//        int next = 0;
+//        if(number==1){
+//            System.out.println(0);
+//        }else if(number ==2){
+//            System.out.println(0 + " " + 1);
+//        }else {
+//            System.out.print(0 + " " + 1 + " ");
+//            while (number > 0) {
+//                next =  next + (first + second);
+//                first=second;
+//                second=next;
+//                System.out.print(next + " ");
+//                number--;
+//            }
+//        }
+
+
+
+//        Q. Find the Employees with the name in ascending order and salary in descending order.
+//        List<Employeee> list = new ArrayList<>();
+//        Employeee e1= new Employeee("Amar", 2000);
+//        Employeee e2= new Employeee("Atul", 3000);
+//        Employeee e3= new Employeee("Ajay", 4000);
+//        Employeee e4= new Employeee("Vijay", 5000);
+//        Employeee e5= new Employeee("Ritik", 6000);
+//        Employeee e6= new Employeee("Ritik", 7000);
+//        list.add(e1);
+//        list.add(e2);
+//        list.add(e3);
+//        list.add(e4);
+//        list.add(e5);
+//        list.add(e6);
+
+//        list.sort(Comparator.comparing(Employeee::getEmpName).thenComparing(Comparator.comparing(Employeee::getSalary).reversed()));
+//        list.stream().forEach(employeee -> System.out.println(employeee));
+
+//        Q. Find the employees whose name starts with 'A' having salary in descending order.
+//        for (Employeee employeee : list.stream().filter(employeee -> employeee.getEmpName().startsWith("A")).sorted(Comparator.comparing(Employeee::getEmpName).thenComparing(Comparator.comparing(Employeee::getSalary).reversed())).toList()) {
+//            System.out.println(employeee);
+//        }
+//        System.out.println( " Here is the result --> " + Main.longestWord("Time to write great code"));
+        //        Longest even length word (Using Stream API)
+//        String lStr = "Time to write great code";
+//        String[] arrStr = lStr.split(" ");
+//        System.out.println(Arrays.stream(arrStr).filter(s1 -> s1.length()%2==0).reduce((s1,s2) -> s2.length()>s1.length()?s2:s1).orElse("00"));
+
+//        Max salary from each department( Employee {id, name, salary, department})
+        ArrayList<Employeee> employeees=new ArrayList<>();
+        employeees.add(new Employeee(100L,"Rohit",30000L,"HR"));
+        employeees.add(new Employeee(100L,"Akanksha",32000L,"HR"));
+        employeees.add(new Employeee(200L,"Karan",50000L,"Salaes"));
+        employeees.add(new Employeee(200L,"Param",55000L,"Salaes"));
+        employeees.add(new Employeee(300L,"Kirti",41000L,"Dotnet"));
+        employeees.add(new Employeee(300L,"Pooja",40000L,"Dotnet"));
+        employeees.add(new Employeee(400L,"Sejal",35000L,"Finance"));
+        employeees.add(new Employeee(400L,"Suraj",32000L,"Finance"));
+        employeees.add(new Employeee(500L,"Heera",60000L,"Java"));
+        employeees.add(new Employeee(600L,"Aby",80000L,"Java"));
+
+        System.out.println(employeees.stream().sorted(Comparator.comparing(Employeee::getSalary).reversed()).collect(Collectors.groupingBy(Employeee::getDepartment)));
+
+//        Move zeros to the end of the array
+        int[] result = Main.moveZeros(new int[]{1,2,0,4,3,2,0,1,0});
+        for(int i :result){
+            System.out.println(i+" , ");
+        }
+    }
+
+    //        Longest even length word
+//    public static String longestWord(String lStr){
+//        String lStr = "Time to write great code";
+//        String[] strArr= lStr.split(" ");
+//        int len=0;
+//        String result= " ";
+//        for(String s:strArr){
+//            if(s.length()%2==0 && s.length()>len){
+//                len=s.length();
+//                result = s;
+//            }
+//        }
+//        return result;
+//    }
+
+//    Move zeros to the end of Array
+    public static int[] moveZeros(int[] arr){
+
+        for(int i=0; i<arr.length;i++){
+                for(int j=1; j<arr.length;j++){
+                    if(arr[i]==0){
+                        int temp = arr[i];
+                        arr[i]=arr[j];
+                        arr[j]=temp;
+                    }
+                }
+        }
     }
 }
 
-class Test implements Cloneable {
-    int id;
+class Employeee{
+    private Long id;
+    private String empName;
+    private Long salary;
+    private String department;
+    private Employeee(){}
 
-    Test() {
-
+    public Employeee(String empName, Long salary){
+        this.empName=empName;
+        this.salary=salary;
+    }
+    public Employeee(Long id, String empName, Long salary, String department){
+        this.id=id;
+        this.empName=empName;
+        this.salary=salary;
+        this.department=department;
     }
 
-    Test(int id) {
-        this.id = id;
+    public Long getId(){return id;}
+
+    public String getEmpName() {
+        return empName;
     }
+
+    public Long getSalary() {
+        return salary;
+    }
+
+    public String getDepartment(){return department;}
 
     @Override
     public String toString() {
-        return "Test{" +
+        return "Employeee{" +
                 "id=" + id +
+                ", empName='" + empName + '\'' +
+                ", salary=" + salary +
+                ", department='" + department + '\'' +
                 '}';
-    }
-
-    @Override
-    public Test clone() {
-        try {
-            // TODO: copy mutable state here, so the clone can't change the internals of the original
-            return (Test) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
     }
 }
