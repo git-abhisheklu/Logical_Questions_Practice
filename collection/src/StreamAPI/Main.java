@@ -367,13 +367,36 @@ public class Main {
         employeees.add(new Employeee(500L,"Heera",60000L,"Java"));
         employeees.add(new Employeee(600L,"Aby",80000L,"Java"));
 
-        System.out.println(employeees.stream().sorted(Comparator.comparing(Employeee::getSalary).reversed()).collect(Collectors.groupingBy(Employeee::getDepartment)));
+//        System.out.println(employeees.stream().sorted(Comparator.comparing(Employeee::getSalary).reversed()).collect(Collectors.groupingBy(Employeee::getDepartment)));
+//        Using maxBy()
+        Map<String, Optional<Employeee>> map = employeees.stream().collect(Collectors.groupingBy(Employeee::getDepartment, Collectors.maxBy(Comparator.comparing(Employeee::getSalary))));
+        for (Map.Entry<String, Optional<Employeee>> entry : map.entrySet()) {
+            System.out.println(entry.getKey() +" -> "+entry.getValue());
+        }
 
 //        Move zeros to the end of the array
-        int[] result = Main.moveZeros(new int[]{1,2,0,4,3,2,0,1,0});
-        for(int i :result){
-            System.out.println(i+" , ");
-        }
+//        int[] result = Main.moveZeros(new int[]{1,2,0,4,3,2,0,1,0});
+//        for(int i :result){
+//            System.out.println(i+" , ");
+//        }
+
+//        Given a list of integers, find out all the numbers starting with 1 using Stream functions?
+//        List<Integer> list = List.of(23,25,12,21,14,76,54,37,65,16,1);
+//        List<Integer> integerList =list.stream().map(String::valueOf).filter(a -> a.charAt(0) == '1').map(Integer::valueOf).toList();
+//        System.out.print("Numbers starting with '1': ");
+//        for(int i:integerList){
+//            System.out.print(i+", ");
+//        }
+
+//        How to find duplicate elements in a given integers list in java using Stream functions?
+//        List<Integer> integerList = List.of(12,45,67,43,52,14,76,12,65);
+//        Set<Integer> set= integerList.stream().collect(Collectors.toSet());
+//        TreeSet<Integer> tSet= new TreeSet<>(set);
+//        for (Integer i : tSet) {
+//            System.out.print(i+",");
+//        }
+
+
     }
 
     //        Longest even length word
@@ -392,18 +415,18 @@ public class Main {
 //    }
 
 //    Move zeros to the end of Array
-    public static int[] moveZeros(int[] arr){
-
-        for(int i=0; i<arr.length;i++){
-                for(int j=1; j<arr.length;j++){
-                    if(arr[i]==0){
-                        int temp = arr[i];
-                        arr[i]=arr[j];
-                        arr[j]=temp;
-                    }
-                }
-        }
-    }
+//    public static int[] moveZeros(int[] arr){
+//
+//        for(int i=0; i<arr.length;i++){
+//                for(int j=1; j<arr.length;j++){
+//                    if(arr[i]==0){
+//                        int temp = arr[i];
+//                        arr[i]=arr[j];
+//                        arr[j]=temp;
+//                    }
+//                }
+//        }
+//    }
 }
 
 class Employeee{
