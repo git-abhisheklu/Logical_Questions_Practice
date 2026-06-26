@@ -364,15 +364,30 @@ public class Main {
         employeees.add(new Employeee(300L,"Pooja",40000L,"Dotnet"));
         employeees.add(new Employeee(400L,"Sejal",35000L,"Finance"));
         employeees.add(new Employeee(400L,"Suraj",32000L,"Finance"));
-        employeees.add(new Employeee(500L,"Heera",60000L,"Java"));
+        employeees.add(new Employeee(500L,"Heera",82000L,"Java"));
         employeees.add(new Employeee(600L,"Aby",80000L,"Java"));
 
 //        System.out.println(employeees.stream().sorted(Comparator.comparing(Employeee::getSalary).reversed()).collect(Collectors.groupingBy(Employeee::getDepartment)));
 //        Using maxBy()
-        Map<String, Optional<Employeee>> map = employeees.stream().collect(Collectors.groupingBy(Employeee::getDepartment, Collectors.maxBy(Comparator.comparing(Employeee::getSalary))));
-        for (Map.Entry<String, Optional<Employeee>> entry : map.entrySet()) {
-            System.out.println(entry.getKey() +" -> "+entry.getValue());
-        }
+//        Map<String, Optional<Employeee>> map = employeees.stream().collect(Collectors.groupingBy(Employeee::getDepartment, Collectors.maxBy(Comparator.comparing(Employeee::getSalary))));
+//        for (Map.Entry<String, Optional<Employeee>> entry : map.entrySet()) {
+//            System.out.println(entry.getKey() +" -> "+entry.getValue());
+//        }
+
+//        Given the list of integers, find the first element of the list using Stream functions?
+//        List<Integer> list = Arrays.asList(10,23,45,65,2,45,1,54,67);
+//        Optional<Integer> element = list.stream().findFirst();
+//        System.out.println("Here is the first element: "+ element);
+
+//        Given a list of integers, find the total number of elements present in the list using Stream functions?
+//        List<Integer> list = Arrays.asList(10,23,45,65,2,45,1,54,67);
+//        long count = list.stream().count();
+//        System.out.println("Count of elements: "+count);
+
+//        Given a list of integers, find the maximum value element present in it using Stream functions?
+        List<Integer> list = Arrays.asList(10,23,45,65,2,45,1,54,67);
+        Optional<Integer> maximum= list.stream().reduce((a1,a2) -> a2>a1?a1:a2);
+        System.out.println("Maximum element from a list: " + maximum);
 
 //        Move zeros to the end of the array
 //        int[] result = Main.moveZeros(new int[]{1,2,0,4,3,2,0,1,0});
@@ -396,7 +411,31 @@ public class Main {
 //            System.out.print(i+",");
 //        }
 
+        System.out.println( "Here is the result:  "+Main.longestCommonPrefix(new String[]{"flower","flow","flight"}));
 
+    }
+
+    public static String longestCommonPrefix(String[] strs) {
+        StringBuilder sb=new StringBuilder();
+        String s1=strs[0];
+        int len1=s1.length();
+        for(int i=0; i<strs.length-1; i++){
+            String s2=strs[i+1];
+            int len2 = s2.length();
+            int j=0;
+            while(j<len1 && j<len2){
+                if(s1.charAt(j)==s2.charAt(j)){
+                    sb.append(s1.charAt(j));
+                }else{
+                    break;
+                }
+                j++;
+            }
+            s1=sb.toString();
+            sb.setLength(0);
+            len1=s1.length();
+        }
+        return s1;
     }
 
     //        Longest even length word
