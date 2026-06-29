@@ -411,31 +411,41 @@ public class Main {
 //            System.out.print(i+",");
 //        }
 
-        System.out.println( "Here is the result:  "+Main.longestCommonPrefix(new String[]{"flower","flow","flight"}));
+//
+
+//        System.out.println( "Here is the result:  "+Main.longestCommonPrefix(new String[]{"flower","flow","flight"}));
+        System.out.println("Here is the result: "+Main.lengthOfLastWord("   fly me   to   the moon  e"));
+
 
     }
 
-    public static String longestCommonPrefix(String[] strs) {
-        StringBuilder sb=new StringBuilder();
-        String s1=strs[0];
-        int len1=s1.length();
-        for(int i=0; i<strs.length-1; i++){
-            String s2=strs[i+1];
-            int len2 = s2.length();
-            int j=0;
-            while(j<len1 && j<len2){
-                if(s1.charAt(j)==s2.charAt(j)){
-                    sb.append(s1.charAt(j));
-                }else{
-                    break;
-                }
-                j++;
-            }
-            s1=sb.toString();
-            sb.setLength(0);
-            len1=s1.length();
-        }
-        return s1;
+//    public static String longestCommonPrefix(String[] strs) {
+//        StringBuilder sb=new StringBuilder();
+//        String s1=strs[0];
+//        int len1=s1.length();
+//        for(int i=0; i<strs.length-1; i++){
+//            String s2=strs[i+1];
+//            int len2 = s2.length();
+//            int j=0;
+//            while(j<len1 && j<len2){
+//                if(s1.charAt(j)==s2.charAt(j)){
+//                    sb.append(s1.charAt(j));
+//                }else{
+//                    break;
+//                }
+//                j++;
+//            }
+//            s1=sb.toString();
+//            sb.setLength(0);
+//            len1=s1.length();
+//        }
+//        return s1;
+//    }
+
+    public static int lengthOfLastWord(String s) {
+        String[] strArr = s.split(" ");
+        String str = strArr[strArr.length-1];
+        return str.length();
     }
 
     //        Longest even length word
