@@ -4,8 +4,10 @@ import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
@@ -411,7 +413,17 @@ public class Main {
 //            System.out.print(i+",");
 //        }
 
-//
+//      Given a String, find the first non-repeated character in it using Stream functions?
+//        String str1= "HelloHelloWorld";
+//        IntStream intStream = str1.chars();
+//        Optional<Map.Entry<Character,Long>> map = intStream.mapToObj(c -> (char) c).collect(groupingBy(Function.identity(), LinkedHashMap::new, counting())).entrySet().stream().filter(e -> e.getValue()==1).findFirst();
+//        System.out.println(map);
+
+//        Given a String, find the first repeated character in it using Stream functions?
+//        String str1= "HelloHelloWorld";
+//        IntStream intStream = str1.chars();
+//        Optional<Map.Entry<Character, Long>> first = intStream.mapToObj(a -> (char) a).collect(groupingBy(Function.identity(), LinkedHashMap::new, counting())).entrySet().stream().filter(a -> a.getValue() > 1).findFirst();
+//        System.out.println(first);
 
 //        System.out.println( "Here is the result:  "+Main.longestCommonPrefix(new String[]{"flower","flow","flight"}));
         System.out.println("Here is the result: "+Main.lengthOfLastWord("   fly me   to   the moon  e"));
