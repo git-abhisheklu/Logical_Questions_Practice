@@ -14,14 +14,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
-    private final int value=10;
     public static void main(String[] args){
-        Map<Integer, String> map = new HashMap<>();
-        map.put(1, "Rakesh");
-        map.put(12, "Akash");
-        map.put(3,"Amit");
-        map.put(18, "Kapil");
-        map.put(14, "Kareena");
+//        Map<Integer, String> map = new HashMap<>();
+//        map.put(1, "Rakesh");
+//        map.put(12, "Akash");
+//        map.put(3,"Amit");
+//        map.put(18, "Kapil");
+//        map.put(14, "Kareena");
 //        System.out.println(map);
 //        System.out.println("Value associated with key-2: "+map.get(2));
 //        map.remove(3);
@@ -73,16 +72,16 @@ public class Main {
 //        How to improve the performance of HashMap?
 //        See, HashMap performance is totally depends upon the Hashing of keys, if hashing is done in the best way it will handle collision.
 
-        System.out.println("The size of map is: "+map.size());
-        System.out.println("Is map empty: "+ map.isEmpty());
-        System.out.println("Sorting hashmap by keys and values: ");
-        Iterator<Integer> iterator = map.keySet().iterator();
-        System.out.println("Sorting the keys of HashMap: ");
-
-        TreeMap<Integer, String> treeMap = new TreeMap<>(map);
-        for (Map.Entry<Integer, String> list : treeMap.entrySet()) {
-            System.out.println(list.getKey()+ "  & "+ list.getValue());
-        }
+//        System.out.println("The size of map is: "+map.size());
+//        System.out.println("Is map empty: "+ map.isEmpty());
+//        System.out.println("Sorting hashmap by keys and values: ");
+//        Iterator<Integer> iterator = map.keySet().iterator();
+//        System.out.println("Sorting the keys of HashMap: ");
+//
+//        TreeMap<Integer, String> treeMap = new TreeMap<>(map);
+//        for (Map.Entry<Integer, String> list : treeMap.entrySet()) {
+//            System.out.println(list.getKey()+ "  & "+ list.getValue());
+//        }
 //        System.out.println("Sorting the values of HashMap: ");
 //        Main.getHashMapValue(map);
 //        Iterator<Map.Entry<Integer, String>> iterator1 = treeMap.entrySet().iterator();
@@ -90,7 +89,7 @@ public class Main {
         // Q. How to convert HashMap into Set?
         // There are two ways-
         //1. Using HashSet constructor 2. Using stream API
-        System.out.println("Converting the HashMap into Set: ");
+//        System.out.println("Converting the HashMap into Set: ");
         //1. Using HashSet constructor-
 //        Set<Integer> setKey= new TreeSet<>(map.keySet());
 //        Iterator iterator1= setKey.iterator();
@@ -115,22 +114,22 @@ public class Main {
 //            System.out.println(iterator1.next());
 //        }
 
-        List<Integer> arr=Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+//        List<Integer> arr=Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
 //        Main.swapKth(arr,3);
-        ArrayList<Integer> list = new ArrayList<>();
+//        ArrayList<Integer> list = new ArrayList<>();
 
-        String s="geeks for geeks";
+//        String s="geeks for geeks";
 
-        int[] newArr={2,5,8,10,13};
+//        int[] newArr={2,5,8,10,13};
 //        System.out.println("Find two elements: "+Main.findTwoElement(newArr));
 //        Main.returnUniqueElements(newArr);
 //        int n=5, arr[ ] = {10, 11, 1, 2, 3};
 //        System.out.println("First letter concat: " +Main.game_with_number(arr,n));
-        int[] input = {2,2,0,4,0,8};
-        String[] stringArr = {"geeksforgeeks", "geeks", "geek", "geezer"};
-        String s1="IX"; String s2 = "MCMIV";
-        List<Integer> listArr = Arrays.asList(-5, -2, 5, 2, 4, 7, 1, 8, 0, -8);
-        ArrayList<Integer> newList = new ArrayList<>(listArr);
+//        int[] input = {2,2,0,4,0,8};
+//        String[] stringArr = {"geeksforgeeks", "geeks", "geek", "geezer"};
+//        String s1="IX"; String s2 = "MCMIV";
+//        List<Integer> listArr = Arrays.asList(-5, -2, 5, 2, 4, 7, 1, 8, 0, -8);
+//        ArrayList<Integer> newList = new ArrayList<>(listArr);
 //        System.out.println(" Result of frequency count: " + Main.findElement(arrrr));
 //        System.out.println(" Result of frequency count: " + Main.encode("ttlllsslhh"));
 //        System.out.println(" Result of frequency count: " + Main.printString("Thisisdemostring", 'i',3 ));
@@ -140,9 +139,9 @@ public class Main {
 //        System.out.println(" Result: " + Main.totalCount(3,newArr));
 //        System.out.println(" Result: " + Main.largestSwap("768"));
 //        System.out.println(" Result: " + Main.minOperations(2));
-        int[] arrMax ={2,2,1,2};
-        int a[] ={5,6,3};
-        int b[] = {8,4,2};
+//        int[] arrMax ={2,2,1,2};
+//        int a[] ={5,6,3};
+//        int b[] = {8,4,2};
 //        System.out.println(" Result: " + Main.maxConsecBits(arrMax));
 //        System.out.println(" Result: " + Main.maxRepeating(3,arrMax));
 //        System.out.println(" Result: " + Main.findSum(a,b));
@@ -175,6 +174,20 @@ public class Main {
 //        int aa=10;
 //        Integer bb=10;
 //        System.out.println(aa==bb);
+
+//        System.out.println(Main.isValid("]"));
+
+//        Q. Merged sorted lists in to a single sorted list.
+//        ListNode list1 = new ListNode(1);
+//        list1.next = new ListNode(2);
+//        list1.next.next = new ListNode(4);
+//
+//        ListNode list2 = new ListNode(1);
+//        list2.next = new ListNode(3);
+//        list2.next.next = new ListNode(4);
+//        System.out.println("Merged two list: "+Main.mergeTwoLists(list1,list2));
+
+
     }
 //    static HashMap<Integer,String> getHashMapValue(Map<Integer,String> map){
 //        List<Map.Entry<Integer,String>> list=new LinkedList(map.entrySet());
@@ -1333,6 +1346,69 @@ public class Main {
 //                arr[high] = temp;
 //                high--;
 //            }
+//        }
+//    }
+
+//Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+//An input string is valid if:
+//    Open brackets must be closed by the same type of brackets.
+//    Open brackets must be closed in the correct order.
+//    Every close bracket has a corresponding open bracket of the same type.
+//    public static boolean isValid(String s) {
+//        int len = s.length();
+//        Stack<Character> stack = new Stack<>();
+//        int i = 0;
+//        while(len>0){
+//            if((s.charAt(i)=='(' || s.charAt(i)=='{' || s.charAt(i)=='[')){
+//                stack.push(s.charAt(i));
+//            } else if ((s.charAt(i)==')' || s.charAt(i)=='}' || s.charAt(i)==']') && !stack.isEmpty()) {
+//                if((stack.peek()=='(' && s.charAt(i)==')') || (stack.peek()=='{' && s.charAt(i)=='}') || (stack.peek()=='[' && s.charAt(i)==']')){
+//                    stack.pop();
+//                }else{
+//                    return false;
+//                }
+//            }
+//            len--;
+//            i++;
+//        }
+//        if(!stack.isEmpty()){
+//            return false;
+//        }
+//        return true;
+//    }
+//    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+//        ListNode dummy = new ListNode(-1);
+//        ListNode tail = dummy;
+//        while (list1 != null && list2 != null) {
+//            if (list1.val <= list2.val) {
+//                tail.next = list1;
+//                list1 = list1.next;
+//            } else {
+//                tail.next = list2;
+//                list2 = list2.next;
+//            }
+//            tail = tail.next;
+//        }
+//        if (list1 != null) {
+//            tail.next = list1;
+//        } else {
+//            tail.next = list2;
+//        }
+//        return dummy.next;
+//    }
+//    public static class ListNode {
+//        int val;
+//        ListNode next;
+//        ListNode() {}
+//        ListNode(int val) { this.val = val; }
+//        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+//
+//        @Override
+//        public String toString() {
+//            return "ListNode{" +
+//                    "val=" + val +
+//                    ", next=" + next +
+//                    '}';
 //        }
 //    }
 }
