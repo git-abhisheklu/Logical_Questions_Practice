@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
@@ -424,6 +425,16 @@ public class Main {
 //        IntStream intStream = str1.chars();
 //        Optional<Map.Entry<Character, Long>> first = intStream.mapToObj(a -> (char) a).collect(groupingBy(Function.identity(), LinkedHashMap::new, counting())).entrySet().stream().filter(a -> a.getValue() > 1).findFirst();
 //        System.out.println(first);
+
+//        Given a list of integers, sort all the values present in it using Stream functions?
+//        List<Integer> integerList = List.of(12,45,67,43,52,14,76,12,65);
+//        List<Integer> sorted = integerList.stream().sorted().toList();
+//        System.out.println("Sorted list :" + sorted);
+
+//        Given a list of integers, sort all the values present in it in descending order using Stream functions?
+//        List<Integer> integerList = List.of(12,45,67,43,52,14,76,12,65);
+//        List<Integer> list3 = integerList.stream().sorted(Comparator.reverseOrder()).toList();
+//        System.out.println(list3);
 
 //        System.out.println( "Here is the result:  "+Main.longestCommonPrefix(new String[]{"flower","flow","flight"}));
         System.out.println("Here is the result: "+Main.lengthOfLastWord("   fly me   to   the moon  e"));
