@@ -1432,18 +1432,16 @@ public class Main {
 //    }
 
 //    Remove elements(in-place)
-    public static int removeElement(int[] nums, int val) {
-        int len = nums.length;
-        int i=0,j=1;
-        while(j<len){
-            if(nums[i]==val && nums[j]!=val){
-                int temp = nums[i];
-                nums[i]=nums[j];
-                nums[j]=temp;
-            }
-            i++;
-            j++;
-        }
-        return i-1;
-    }
+//    public static int removeElement(int[] nums, int val) {
+//        int len = nums.length;
+//        int i=0,j=0;
+//        while(i<len){
+//            if(nums[i]!=val){
+//                nums[j]=nums[i];
+//                j++;
+//            }
+//            i++;
+//        }
+//        return j;
+//    }
 }
