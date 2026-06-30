@@ -187,7 +187,11 @@ public class Main {
 //        list2.next.next = new ListNode(4);
 //        System.out.println("Merged two list: "+Main.mergeTwoLists(list1,list2));
 
+//        Remove Duplicates from Sorted Array
+//        System.out.println("Remove duplicates from sorted array: " + Main.removeDuplicates(new int[]{1,1,2}));
 
+//        Remove elements(in-place)
+        System.out.println("Remove elements: " + Main.removeElement(new int[]{0,1,2,2,3,0,4,2}, 2));
     }
 //    static HashMap<Integer,String> getHashMapValue(Map<Integer,String> map){
 //        List<Map.Entry<Integer,String>> list=new LinkedList(map.entrySet());
@@ -1411,4 +1415,35 @@ public class Main {
 //                    '}';
 //        }
 //    }
+
+// Remove Duplicates from Sorted Array(in-place)
+//    public static int removeDuplicates(int[] nums) {
+//        int len = nums.length;
+//        int i=0,j=1;
+//        while(len-1>0){
+//            if(nums[j]!=nums[i]){
+//                i++;
+//                nums[i]=nums[j];
+//            }
+//            j++;
+//            len--;
+//        }
+//        return i+1;
+//    }
+
+//    Remove elements(in-place)
+    public static int removeElement(int[] nums, int val) {
+        int len = nums.length;
+        int i=0,j=1;
+        while(j<len){
+            if(nums[i]==val && nums[j]!=val){
+                int temp = nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+            }
+            i++;
+            j++;
+        }
+        return i-1;
+    }
 }
