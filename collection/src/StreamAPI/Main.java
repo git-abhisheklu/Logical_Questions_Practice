@@ -3,6 +3,7 @@ package StreamAPI;
 import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -437,7 +438,26 @@ public class Main {
 //        System.out.println(list3);
 
 //        System.out.println( "Here is the result:  "+Main.longestCommonPrefix(new String[]{"flower","flow","flight"}));
-        System.out.println("Here is the result: "+Main.lengthOfLastWord("   fly me   to   the moon  e"));
+//        System.out.println("Here is the result: "+Main.lengthOfLastWord("   fly me   to   the moon  e"));
+
+//        Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+//        int[] nums = new int[]{12,34,76,24,23,90,78,54,54};
+//        Set<Integer> set = new HashSet<>();
+//        boolean b = Arrays.stream(nums).anyMatch(a -> !set.add(a));
+//        System.out.println("Value appears twice: " + b);
+
+//        How will you get the current date and time using Java 8 Date and Time API?
+//        LocalDateTime ldt = LocalDateTime.now();
+//        System.out.println(ldt);
+
+//      Write a Java 8 program to concatenate two Streams?
+//        List<String> list3 = Arrays.asList("Java", "8");
+//        List<String> list4 = Arrays.asList("explained", "through", "programs");
+//        List<String> list5 = Stream.concat(list3.stream(), list4.stream()).toList();
+//        System.out.println(list5);
+
+
+
 
 
     }
