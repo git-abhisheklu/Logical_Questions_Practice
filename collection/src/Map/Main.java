@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.util.*;
@@ -191,7 +192,12 @@ public class Main {
 //        System.out.println("Remove duplicates from sorted array: " + Main.removeDuplicates(new int[]{1,1,2}));
 
 //        Remove elements(in-place)
-        System.out.println("Remove elements: " + Main.removeElement(new int[]{0,1,2,2,3,0,4,2}, 2));
+//        System.out.println("Remove elements: " + Main.removeElement(new int[]{0,1,2,2,3,0,4,2}, 2));
+
+//        System.out.println(Main.getMax(new int[]{89,56,43,23,76,100}));
+
+//        Q. Max sub-array sum by removing at most one
+
     }
 //    static HashMap<Integer,String> getHashMapValue(Map<Integer,String> map){
 //        List<Map.Entry<Integer,String>> list=new LinkedList(map.entrySet());
@@ -1380,6 +1386,7 @@ public class Main {
 //        }
 //        return true;
 //    }
+
 //    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 //        ListNode dummy = new ListNode(-1);
 //        ListNode tail = dummy;
@@ -1444,4 +1451,81 @@ public class Main {
 //        }
 //        return j;
 //    }
+
+//        public static String longestCommonPrefix(String[] strs) {
+//        StringBuilder sb=new StringBuilder();
+//        String s1=strs[0];
+//        int len1=s1.length();
+//        for(int i=0; i<strs.length-1; i++){
+//            String s2=strs[i+1];
+//            int len2 = s2.length();
+//            int j=0;
+//            while(j<len1 && j<len2){
+//                if(s1.charAt(j)==s2.charAt(j)){
+//                    sb.append(s1.charAt(j));
+//                }else{
+//                    break;
+//                }
+//                j++;
+//            }
+//            s1=sb.toString();
+//            sb.setLength(0);
+//            len1=s1.length();
+//        }
+//        return s1;
+//    }
+
+//    Find the length of the last word in a String
+//    public static int lengthOfLastWord(String s) {
+//        String[] strArr = s.split(" ");
+//        String str = strArr[strArr.length-1];
+//        return str.length();
+//    }
+
+//    Longest even length word in a String
+//    public static String longestWord(String lStr){
+//        String lStr = "Time to write great code";
+//        String[] strArr= lStr.split(" ");
+//        int len=0;
+//        String result= " ";
+//        for(String s:strArr){
+//            if(s.length()%2==0 && s.length()>len){
+//                len=s.length();
+//                result = s;
+//            }
+//        }
+//        return result;
+//    }
+
+//    Move zeros to the end of the Array
+//    public static int[] moveZeros(int[] arr){
+//
+//        for(int i=0; i<arr.length;i++){
+//                for(int j=1; j<arr.length;j++){
+//                    if(arr[i]==0){
+//                        int temp = arr[i];
+//                        arr[i]=arr[j];
+//                        arr[j]=temp;
+//                    }
+//                }
+//        }
+//    }
+
+//    Find 2nd highest element in an Array.
+//    public static int getMax(int[] arr){
+//        int len = arr.length;
+//        int max= arr[0];
+//        int second = -1;
+//        for(int i=1; i<len; i++) {
+//            if (arr[i] > max) {
+//                second = max;
+//                max = arr[i];
+//            } else if (arr[i] < max && arr[i] > second) {
+//                second = arr[i];
+//            }
+//        }
+//        return second;
+//    }
+
+
 }
