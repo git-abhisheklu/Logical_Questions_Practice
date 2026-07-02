@@ -389,9 +389,9 @@ public class Main {
 //        System.out.println("Count of elements: "+count);
 
 //        Given a list of integers, find the maximum value element present in it using Stream functions?
-        List<Integer> list = Arrays.asList(10,23,45,65,2,45,1,54,67);
-        Optional<Integer> maximum= list.stream().reduce((a1,a2) -> a2>a1?a1:a2);
-        System.out.println("Maximum element from a list: " + maximum);
+//        List<Integer> list = Arrays.asList(10,23,45,65,2,45,1,54,67);
+//        Optional<Integer> maximum= list.stream().reduce((a1,a2) -> a2>a1?a1:a2);
+//        System.out.println("Maximum element from a list: " + maximum);
 
 //        Move zeros to the end of the array
 //        int[] result = Main.moveZeros(new int[]{1,2,0,4,3,2,0,1,0});
@@ -456,7 +456,15 @@ public class Main {
 //        List<String> list5 = Stream.concat(list3.stream(), list4.stream()).toList();
 //        System.out.println(list5);
 
+//        Java 8 program to perform cube on list elements and filter numbers greater than 50.
+//        List<Integer> list3 = Arrays.asList(12,34,76,24,23,90,78,54,54);
+//        List<Integer> list4 = list3.stream().map(a -> a * a * a).filter(a -> a>50).toList();
+//        System.out.println("Perform cube and numbers greater than 50: "+list4);
 
+//        Write a Java 8 program to sort an array and then convert the sorted array into Stream?
+//        int[] nums = new int[]{12,34,76,24,23,90,78,54,54};
+//        Stream<Integer> boxed = Arrays.stream(nums).sorted().boxed();
+//        System.out.println(boxed.toList());
 
 
 
